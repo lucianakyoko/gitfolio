@@ -1,0 +1,1 @@
+export type TemplateType = 'minimal' | 'modern' | 'creative' | 'professional' | 'dark' | 'cyberpunk'

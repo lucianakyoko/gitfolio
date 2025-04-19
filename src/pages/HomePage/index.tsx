@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
-import { StepThree } from "./components/StepThree";
+// import { StepThree } from "./components/StepThree";
+import { StepFour } from "./components/StepFour";
 // import { StepTwo } from "./components/StepTwo";
 // import { StepOne } from "./components/StepOne";
 
@@ -11,7 +12,8 @@ export function HomePage() {
       <main>
         {/* <StepOne /> */}
         {/* <StepTwo /> */}
-        <StepThree />
+        {/* <StepThree /> */}
+        <StepFour />
       </main>
     </>
   )

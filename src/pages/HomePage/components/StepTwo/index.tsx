@@ -1,8 +1,6 @@
 import { ArrowRight } from "lucide-react";
-import { Button } from "../../../../components/ui/button";
+import { Button } from "@/components/ui/button";
 import { TempleteCard } from "./TemplateCard";
-// import { useState } from "react";
-// import { TemplateType } from "@/types";
 
 import templates from '@/datas/templates.json';
 import { useState } from "react";

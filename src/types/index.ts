@@ -9,3 +9,16 @@ export interface PortfolioConfig {
   tecnologies: string
   featuredProjects: string
 }
+
+export interface UserData {
+  username:string
+  name: string
+  avatar_url: string
+  templateId?: string
+  email?: string
+  tagline?: string
+  website?: string
+  about?: string
+  tech: string
+  projects: string
+}

@@ -4,12 +4,13 @@ import { StepOne } from "./components/StepOne";
 import { StepTwo } from "./components/StepTwo";
 import { StepThree } from "./components/StepThree";
 import { StepFour } from "./components/StepFour";
+import { UserProvider } from "@/contexts/UserContext";
 
 export function HomePage() {
   const [step, setStep] = useState(1)
 
   return (
-    <>
+    <UserProvider>
       <Header />
       <main>
         { step === 1 && <StepOne onNext={() => setStep(2)} /> }
@@ -24,6 +25,6 @@ export function HomePage() {
           <StepFour onPrevious={() => setStep(3)} /> 
         }
       </main>
-    </>
+    </UserProvider>
   )
 }

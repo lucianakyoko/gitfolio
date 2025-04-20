@@ -1,18 +1,18 @@
 import { Input,  } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, LoaderCircle } from 'lucide-react';
-import { useState } from "react";
 import { useGithubUser } from "@/hooks/useGithubUser";
 import { useUser } from "@/contexts/UserContext";
+import { useState } from "react";
 
 type StepOneProps = {
   onNext: () => void
 }
 
 export function StepOne({onNext}: StepOneProps) {
-  const [username, setUsername] = useState<string>('')
-  const {data, isLoading, refetch} = useGithubUser(username)
-  const {setUser} = useUser()
+  const {setUser, username, setUsername} = useUser()
+  const {isLoading, refetch} = useGithubUser(username)
+  const [error, setError] = useState(false)
 
   const handleNextStep = async () => {
     const response = await refetch()
@@ -20,6 +20,8 @@ export function StepOne({onNext}: StepOneProps) {
     if(response.isSuccess && response.data) {
       setUser(response.data)
       onNext()
+    } else {
+      setError(true)
     }
   }
 
@@ -53,7 +55,7 @@ export function StepOne({onNext}: StepOneProps) {
           </Button>
         </div>
         {
-          username.length > 0 && !isLoading && !data && (
+          error && (
             <p className="text-sm text-red-500 mt-2">Usuário não encontrado no GitHub</p>
           )
         }

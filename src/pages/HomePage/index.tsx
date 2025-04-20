@@ -5,6 +5,7 @@ import { StepTwo } from "./components/StepTwo";
 import { StepThree } from "./components/StepThree";
 import { StepFour } from "./components/StepFour";
 import { UserProvider } from "@/contexts/UserContext";
+import { StepFive } from "./components/StepFive";
 
 export function HomePage() {
   const [step, setStep] = useState(1)
@@ -22,8 +23,12 @@ export function HomePage() {
           /> 
         }
         { step === 4 && 
-          <StepFour onPrevious={() => setStep(3)} /> 
+          <StepFour 
+            onPrevious={() => setStep(3)} 
+            onNext={() => setStep(5)} 
+          /> 
         }
+        {step === 5 && <StepFive />}
       </main>
     </UserProvider>
   )

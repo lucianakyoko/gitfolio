@@ -5,9 +5,10 @@ import { downloadMarkdownConfig } from "@/utils/downloadConfig";
 
 type StepFourProps = {
   onPrevious: () => void
+  onNext: () => void
 }
 
-export function StepFour({onPrevious}:StepFourProps ) {
+export function StepFour({onPrevious, onNext}:StepFourProps ) {
   const { user } = useUser()
   if (!user) return null
 
@@ -33,7 +34,11 @@ export function StepFour({onPrevious}:StepFourProps ) {
             <Download />
             Baixar Configurações
           </Button>
-          <Button type="submit" className="bg-blue-500 text-white hover:bg-blue-600 cursor-pointer">
+          <Button 
+            type="submit" 
+            className="bg-blue-500 text-white hover:bg-blue-600 cursor-pointer"
+            onClick={() => onNext()}
+          >
             <ArrowRight />
             Gerar Portifólio
           </Button>

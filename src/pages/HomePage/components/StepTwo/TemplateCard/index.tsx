@@ -1,4 +1,3 @@
-// import { TemplateType } from "@/types";
 import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
 

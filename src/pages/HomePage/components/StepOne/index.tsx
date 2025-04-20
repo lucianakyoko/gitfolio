@@ -2,13 +2,17 @@ import { Input,  } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
 
-export function StepOne() {
+type StepOneProps = {
+  onNext: () => void
+}
+
+export function StepOne({onNext}: StepOneProps) {
   return (
     <div className="flex flex-col gap-20">
     <div className="flex flex-col gap-8 items-center">
 '         <div className="flex flex-col gap-3 items-center">
         <h1 className="text-4xl font-black text-blue-300">GitFolio</h1>
-        <h2 className="text-2xl font-semibold text-gray-600">Crie lindos sites de portifólio no GitHub em minutos</h2>
+        <h2 className="text-2xl font-semibold text-gray-600">Mostre seus projetos do GitHub com um portfólio simples e rápido</h2>
       </div>
 
       <div className="flex w-full max-w-sm items-center space-x-2 p-1.5 border border-gray-100 rounded-md">
@@ -20,7 +24,11 @@ export function StepOne() {
           placeholder="Insira o seu usuário do Github"
           className="border-0 bg-blue-50 rounded-md !border-none !ring-0 !outline-none focus:!outline-none focus:!ring-0 focus:!border-none"
         />
-        <Button type="submit" className="bg-blue-400 text-white hover:bg-blue-500 cursor-pointer">
+        <Button 
+          onClick={onNext}
+          type="button" 
+          className="bg-blue-400 text-white hover:bg-blue-500 cursor-pointer"
+        >
           Gerar
           <ArrowRight />
         </Button>

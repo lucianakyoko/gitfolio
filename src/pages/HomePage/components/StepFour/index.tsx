@@ -1,13 +1,21 @@
 import { ArrowRight, Download, SquarePen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export function StepFour() {
+type StepFourProps = {
+  onPrevious: () => void
+}
+
+export function StepFour({onPrevious}:StepFourProps ) {
   return (
     <div className="py-12 flex flex-col gap-7 items-center">
       <div className="flex flex-col gap-2 items-center">
         <h2 className="text-3xl font-bold text-gray-600">Preview</h2>
         <div className="flex items-center gap-4">
-          <Button type="button" className="bg-white text-gray-600 border border-blue-100 hover:bg-blue-100 cursor-pointer">
+          <Button 
+            onClick={onPrevious}
+            type="button" 
+            className="bg-white text-gray-600 border border-blue-100 hover:bg-blue-100 cursor-pointer"
+          >
             <SquarePen />
             Editar
           </Button>

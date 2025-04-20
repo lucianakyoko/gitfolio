@@ -73,13 +73,13 @@ Rest of your README content...`}</pre>
           <p className="text-sm mt-2">
             <strong>Valor:</strong> Caminho para uma imagem no repositório ou uma URL externa.
           </p>
-          <p className="text-sm mt-2">
+          <div className="text-sm mt-2">
             <strong>Exemplos:</strong>
             <ul className="list-disc pl-5 mt-1">
               <li><code className="bg-gray-100 px-1 rounded">./assets/cover.jpg</code> (caminho relativo à raiz do repositório)</li>
               <li><code className="bg-gray-100 px-1 rounded">https://example.com/images/cover.png</code> (URL externa)</li>
             </ul>
-          </p>
+          </div>
         </div>
         
         <div className="p-4 border border-blue-100 rounded-md">

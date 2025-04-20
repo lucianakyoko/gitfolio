@@ -28,7 +28,7 @@ export function StepThree({onNext, onPrevious}: StepThreePros) {
     updateUser({name, email, tagline, website, about, tech, projects})
     onNext()
   }
-  console.log(user)
+
   return (
     <div className="py-12 flex flex-col gap-7 items-center">
       <div className="flex flex-col gap-2 items-center">

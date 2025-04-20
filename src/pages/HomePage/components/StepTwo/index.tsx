@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TempleteCard } from "./TemplateCard";
 import templates from '@/datas/templates.json';
+import { useUser } from "@/contexts/UserContext";
 
 type StepTwoProps = {
   onNext: () => void
@@ -11,6 +12,12 @@ type StepTwoProps = {
 export function StepTwo({onNext}: StepTwoProps) {
   const [selectedId, setSelectedId] = useState<string>('minimal')
   const selectedTemplate = templates.find(template => template.id === selectedId)
+  const { setTemplateId } = useUser()
+  
+  const handleNext = () => {
+    setTemplateId(selectedId)
+    onNext()
+  }
   
   return (
     <div className="py-12 flex flex-col gap-7 items-center">
@@ -34,7 +41,7 @@ export function StepTwo({onNext}: StepTwoProps) {
 
       </div>
       <Button 
-        onClick={onNext}
+        onClick={handleNext}
         type="button" 
         className="bg-blue-500 text-white hover:bg-blue-600 cursor-pointer"
       >

@@ -2,6 +2,8 @@ import { ArrowRight, Download, SquarePen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useUser } from "@/contexts/UserContext";
 import { downloadMarkdownConfig } from "@/utils/downloadConfig";
+import { PortfolioRenderer } from "@/components/PortfolioRenderer";
+
 
 type StepFourProps = {
   onPrevious: () => void
@@ -45,8 +47,8 @@ export function StepFour({onPrevious, onNext}:StepFourProps ) {
         </div>
       </div>
 
-      <div className="w-5xl rounded-2xl border border-blue-100 p-4">
-        
+      <div className="w-full max-w-5xl h-[600px] overflow-y-auto overflow-x-hidden rounded-2xl border border-blue-100 p-4 bg-white shadow-md relative">
+        <PortfolioRenderer />
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image';
+import NextImage from 'next/image';
 import { Input } from '@/components/ui/input';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -19,7 +19,7 @@ export function StepOne() {
 
         <div className='flex w-full max-w-sm items-center space-x-2 p-1.5 border border-gray-100 rounded-md'>
           <div className="w-6 h-6">
-            <Image src="/github.svg" alt="Logo do Github" width={40} height={40}/>
+            <NextImage src="/github.svg" alt="Logo do Github" width={40} height={40}/>
           </div>
           <Input 
             type='text'

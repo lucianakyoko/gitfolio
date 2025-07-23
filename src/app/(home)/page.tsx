@@ -1,5 +1,6 @@
 import { Header } from "../../components/Header"
 import { StepOne } from "./components/StepOne";
+import { StepThree } from "./components/StepThree";
 import { StepTwo } from "./components/StepTwo";
 
 export default function Home() {
@@ -8,7 +9,8 @@ export default function Home() {
       <Header />
       <main className="m-10">
         {/* <StepOne /> */}
-        <StepTwo />
+        {/* <StepTwo /> */}
+        <StepThree />
       </main>
     </div>
   );

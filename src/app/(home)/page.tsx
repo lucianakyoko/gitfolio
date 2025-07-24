@@ -1,4 +1,5 @@
 import { Header } from "../../components/Header"
+import { StepFive } from "./components/StepFive";
 import { StepFour } from "./components/StepFour";
 import { StepOne } from "./components/StepOne";
 import { StepThree } from "./components/StepThree";
@@ -9,10 +10,11 @@ export default function Home() {
     <div>
       <Header />
       <main className="m-10">
-        {/* <StepOne /> */}
+        <StepOne />
         {/* <StepTwo /> */}
         {/* <StepThree /> */}
-        <StepFour />
+        {/* <StepFour /> */}
+        {/* <StepFive /> */}
       </main>
     </div>
   );

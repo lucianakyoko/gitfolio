@@ -5,6 +5,7 @@ import { GettingStarted } from './sections/GettingStarted';
 import { RepositorySetup } from './sections/RepositorySetup';
 import { AdvancedConfiguration } from './sections/AdvancedConfiguration';
 import { Template } from './sections/Template';
+import { ProjectDisplay } from './sections/ProjectDisplay';
 
 export default function Documentarion() {
    return (
@@ -66,6 +67,7 @@ export default function Documentarion() {
             <RepositorySetup />
             <AdvancedConfiguration />
             <Template />
+            <ProjectDisplay />
           </div>
         </div>
       </main>

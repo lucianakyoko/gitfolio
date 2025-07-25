@@ -3,6 +3,7 @@ import NextLink from 'next/link';
 import { ArrowLeft, BookOpen } from "lucide-react";
 import { GettingStarted } from './sections/GettingStarted';
 import { RepositorySetup } from './sections/RepositorySetup';
+import { AdvancedConfiguration } from './sections/AdvancedConfiguration';
 
 export default function Documentarion() {
    return (
@@ -62,6 +63,7 @@ export default function Documentarion() {
           <div className="md:col-span-3 space-y-12">
             <GettingStarted />
             <RepositorySetup />
+            <AdvancedConfiguration />
           </div>
         </div>
       </main>

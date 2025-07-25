@@ -4,6 +4,7 @@ import { ArrowLeft, BookOpen } from "lucide-react";
 import { GettingStarted } from './sections/GettingStarted';
 import { RepositorySetup } from './sections/RepositorySetup';
 import { AdvancedConfiguration } from './sections/AdvancedConfiguration';
+import { Template } from './sections/Template';
 
 export default function Documentarion() {
    return (
@@ -64,6 +65,7 @@ export default function Documentarion() {
             <GettingStarted />
             <RepositorySetup />
             <AdvancedConfiguration />
+            <Template />
           </div>
         </div>
       </main>

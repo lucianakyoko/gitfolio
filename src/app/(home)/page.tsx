@@ -1,4 +1,5 @@
-import { Header } from "../../components/Header"
+import { Header } from "@/components/Header"
+import { ReactQueryProvider } from "@/providers/ReactQueryProvider";
 import { StepFive } from "./components/StepFive";
 import { StepFour } from "./components/StepFour";
 import { StepOne } from "./components/StepOne";
@@ -7,15 +8,17 @@ import { StepTwo } from "./components/StepTwo";
 
 export default function Home() {
   return (
-    <div>
-      <Header />
-      <main className="m-10">
-        <StepOne />
-        {/* <StepTwo /> */}
-        {/* <StepThree /> */}
-        {/* <StepFour /> */}
-        {/* <StepFive /> */}
-      </main>
-    </div>
+    <ReactQueryProvider>
+      <div>
+        <Header />
+        <main className="m-10">
+          <StepOne />
+          {/* <StepTwo /> */}
+          {/* <StepThree /> */}
+          {/* <StepFour /> */}
+          {/* <StepFive /> */}
+        </main>
+      </div>
+    </ReactQueryProvider>
   );
 }

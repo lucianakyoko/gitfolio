@@ -4,10 +4,26 @@ import NextImage from 'next/image';
 import { Input } from '@/components/ui/input';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, LoaderCircle } from 'lucide-react';
+import { useGithubUser } from '@/hooks/useGithubUser';
+import { useUser } from '@/contexts/UserContext';
 
-export function StepOne() {
-  const [userName, setUserName] = useState('');
+type StepOneProps = {
+  setStep: (number: number) => void;
+}
+export function StepOne({ setStep }: StepOneProps) {
+  const [ userName, setUserName ] = useState('');
+  const { setUser } = useUser();
+  const { isLoading, error, refetch } = useGithubUser(userName);
+
+   const handleFetchUser = async () => {
+    if (!userName.trim()) return
+    const result = await refetch()
+    if (result.data) {
+      setUser(result.data);
+      setStep(2)
+    }
+  }
 
   return (
     <div className='flex flex-col gap-20'>
@@ -29,12 +45,22 @@ export function StepOne() {
             className='border-0 bg-blue-50 rounded-md !border-none !ring-0 !outline-none focus:!outline-none focus:!ring-0 focus:!border-none'
           />
           <Button
+            onClick={ handleFetchUser }
             className="bg-blue-400 text-white hover:bg-blue-500 cursor-pointer"
             type='button'
-          >
-            <ArrowRight />
+            disabled={isLoading || userName.length <= 0}
+            >
+            {isLoading 
+              ? <LoaderCircle className='animate-spin' />
+              : <ArrowRight />
+            }
           </Button>
         </div>
+          {error && (
+            <span className='text-red-500 flex items-center gap-2'>
+              Usuário não encontrato.
+            </span>
+          )}
       </div>
 
       <div className="text-gray-600 flex items-start gap-8 justify-center">

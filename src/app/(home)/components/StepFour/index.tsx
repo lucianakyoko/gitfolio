@@ -1,16 +1,34 @@
 'use client'
 
-import { ArrowRight, Download, SquarePen } from "lucide-react";
+import { ArrowRight, Download, Palette, SquarePen } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PortfolioRenderer } from "@/components/PortfolioRenderer";
+import { useTheme } from "@/contexts/ThemeContext";
 
-export function StepFour() {
+type StepFoureProps = {
+  setStep: (number: number) => void
+}
+
+
+export function StepFour({ setStep }: StepFoureProps) {
+  const { theme } = useTheme();
+
   return(
     <div className="py-12 flex flex-col gap-7 items-center">
       <div className="flex flex-col gap-2 items-center">
         <h2 className="text-3xl font-bold text-gray-600">Preview</h2>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center flex-wrap gap-4">
           <Button 
-            onClick={() => console.log('editar')}
+            onClick={() => setStep(2)}
+            type="button" 
+            className="bg-white text-gray-600 border border-blue-100 hover:bg-blue-100 cursor-pointer"
+          >
+            <Palette />
+            Escolher outro tema
+          </Button>
+          
+          <Button 
+            onClick={() => setStep(3)}
             type="button" 
             className="bg-white text-gray-600 border border-blue-100 hover:bg-blue-100 cursor-pointer"
           >
@@ -29,7 +47,7 @@ export function StepFour() {
           <Button 
             type="submit" 
             className="bg-blue-500 text-white hover:bg-blue-600 cursor-pointer"
-            onClick={() => console.log('gerar portifolio')}
+            onClick={() => setStep(5)}
           >
             <ArrowRight />
             Gerar Portifólio
@@ -38,7 +56,7 @@ export function StepFour() {
       </div>
 
       <div className="w-full max-w-5xl h-[600px] overflow-y-auto overflow-x-hidden rounded-2xl border border-blue-100 p-4 bg-white shadow-md relative">
-        {/* ----- Renderizar template selecionado ----- */}
+        <PortfolioRenderer themeId={theme}/>
       </div>
     </div>
   )

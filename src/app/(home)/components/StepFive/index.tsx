@@ -15,7 +15,7 @@ export function StepFive() {
         <p className="text-xl text-gray-600">Siga estes passos para publicar seu portfólio GitFolio no GitHub:</p>
       </div>
 
-      <div className="space-y-8 w-3xl flex flex-col gap-9 pb-12">
+      <div className="space-y-8 w-96 md:w-3xl flex flex-col gap-9 pb-12 items-center md:items-start px-4 md:px-6">
         <CreateRepoSection />
         <CopyContentSection />
         <CustomizeRepoSection />

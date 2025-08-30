@@ -1,5 +1,5 @@
 import { ExternalLink } from "lucide-react";
-import { CodeBlock } from "../../../../../../components/CodeBlock";
+import { CodeBlock } from "@/components/CodeBlock";
 import { Header } from "../../Header";
 
 export function CreateRepoSection() {
@@ -7,12 +7,12 @@ export function CreateRepoSection() {
     1. Visite a página do GitHub: https://github.com/new
     2. Crie um novo repositório chamado 'GitFolio'
     3. Initialize com um README
-    4. Copie o conteúdo dentro do arquivo README.md
+    4. Copie o conteúdo do passo 2 (abaixo) dentro do arquivo README.md
     5. Faça o commit
   `;
 
   return (
-    <section className="flex flex-col gap-4">
+    <section className="w-full flex flex-col gap-4">
       <Header number={1} title="Crie um novo repositório no GitHub"/>
 
       <div className="flex flex-col gap-2 items-end">

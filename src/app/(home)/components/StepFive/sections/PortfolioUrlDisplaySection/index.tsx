@@ -4,12 +4,12 @@ import { Header } from "../../Header";
 export function PortfolioUrlDisplaySection() {
   const user = 'lucianakyoko'
   return (
-    <section className="flex flex-col gap-4">
-      <Header number={3} title="Personalize a exibição dos seus repositórios" />
+    <section className=" w-full flex flex-col gap-4">
+      <Header number={4} title="Personalize a exibição dos seus repositórios" />
         <p className="text-gray-600">
           Depois que o repositório for criado, seu portfólio estará disponível em:
         </p>
-        <div className="flex items-center justify-between text-gray-600 py-4 px-8 border border-blue-100 rounded-md">
+        <div className="flex flex-col gap-4 justify-between text-gray-600 py-4 px-8 border border-blue-100 rounded-md">
           <p>{`https://gitfolio.vercel.app/${user}`}</p>
           <a 
             href={`https://gitfolio.vercel.app/${user}`}

@@ -6,7 +6,7 @@ import { HighlightProjectsSection } from "./components/HighlightProjectsSection"
 import { OtherProjectsSection } from "./components/OtherProjectsSection"
 import { TecnologiesSection } from "./components/TecnologiesSection"
 
-export function ModermTheme() {
+export function ModernTheme() {
   return (
     <div className="bg-gray-100 pb-10">
       <Header />

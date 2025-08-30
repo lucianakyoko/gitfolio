@@ -1,30 +1,41 @@
 'use client'
-import { useState } from "react"
+import { useEffect } from "react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Button } from "../../../../components/ui/button"
+import { Button } from "@/components/ui/button"
 import { ArrowLeft, Save } from "lucide-react"
-import { Separator } from "../../../../components/ui/separator"
-import { Switch } from "../../../../components/ui/switch"
+import { Separator } from "@/components/ui/separator"
+import { Switch } from "@/components/ui/switch"
+import { useUser } from "@/contexts/UserContext"
+import { useThemeConfig } from "@/contexts/ThemeConfigContext"
 
-export function StepThree() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [tagline, setTagline] = useState('')
-  const [website, setWebsite] = useState('')
-  const [about, setAbout] = useState('')
-  const [tech, setTech] = useState('')
-  const [projects, setProjects] = useState('')
-  const [showStars, setShowStars] = useState(true)
-  const [showFollowes, setShowFollowes] = useState(true)
+type StepThreeProps = {
+  setStep: (number: number) => void
+}
+
+export function StepThree({ setStep }: StepThreeProps) {
+  const { user } = useUser();
+  const { data, updateData } = useThemeConfig();
+
+  useEffect(() => {
+    if (user?.login && user.login !== data.githubUser) {
+      updateData({ githubUser: user.login });
+    }
+  }, [user?.login, data.githubUser, updateData]);
 
   const maxLength = 500
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value
     if (value.length <= maxLength) {
-      setAbout(value)
+      updateData({
+        about: value,
+      })
     }
+  }
+
+  const handleSave = () => {
+    setStep(4);
   }
 
   return(
@@ -45,8 +56,8 @@ export function StepThree() {
             autoFocus
             placeholder="Digite seu nome" 
             className="border-blue-100"
-            value={name}
-            onChange={e => setName(e.target.value)}
+            value={data.name}
+            onChange={e => updateData({name: e.target.value})}
           />
         </div>
 
@@ -56,31 +67,30 @@ export function StepThree() {
             id="email" 
             placeholder="seu@email.com" 
             className="border-blue-100"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
+            value={data.email}
+            onChange={e => updateData({email: e.target.value})}
           />
         </div>
 
         <div className="flex flex-col gap-2">
           <Label className="text-gray-600">LinkedIn</Label>
           <Input 
-            id="name" 
+            id="linkedin-user" 
             autoFocus
             placeholder="https://www.linkedin.com/in/meu-linkedin" 
             className="border-blue-100"
-            value={name}
-            onChange={e => setName(e.target.value)}
+            value={data.linkedinUser}
+            onChange={e => updateData({linkedinUser: e.target.value})}
           />
         </div>
 
         <div className="flex flex-col gap-2">
           <Label className="text-gray-600">GitHub</Label>
           <Input 
-            id="email" 
-            placeholder="https://github.com/meu-usuario" 
-            className="border-blue-100"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
+            id="github-user" 
+            className="border-blue-100 disabled:cursor-not-allowed"
+            value={data.githubUser}
+            disabled
           />
         </div>
 
@@ -90,8 +100,8 @@ export function StepThree() {
             id="tagline" 
             placeholder="Front-end Developer" 
             className="border-blue-100"
-            value={tagline}
-            onChange={e => setTagline(e.target.value)}
+            value={data.tagline}
+            onChange={e => updateData({tagline: e.target.value})}
           />
         </div>
 
@@ -101,8 +111,8 @@ export function StepThree() {
             id="website" 
             placeholder="https://lucianakyoko.vercel.app"  
             className="border-blue-100"
-            value={website}
-            onChange={e => setWebsite(e.target.value)}
+            value={data.website}
+            onChange={e => updateData({website: e.target.value})}
           />
         </div>
 
@@ -112,10 +122,10 @@ export function StepThree() {
             id="about"
             placeholder="Fale um pouco sobre você e seu trabalho"
             className="min-h-[100px] border-blue-100"
-            value={about}
+            value={data.about}
             onChange={handleChange}
           />
-          <p className="text-xs text-gray-600">{about.length} de {maxLength}</p>
+          <p className="text-xs text-gray-600">{data.about.length} de {maxLength}</p>
         </div>
 
         <Separator className="md:col-span-2 my-6"/>
@@ -124,8 +134,8 @@ export function StepThree() {
           <Switch 
             id="show-followers"
             className="cursor-pointer"
-            checked={showFollowes}
-            onCheckedChange={() => setShowFollowes(!showFollowes)}
+            checked={data.showFollowers}
+            onCheckedChange={() => updateData({ showFollowers: !data.showFollowers})}
           />
           <Label 
             className="text-gray-600" 
@@ -137,8 +147,8 @@ export function StepThree() {
           <Switch 
             id="show-stars" 
             className="cursor-pointer"
-            checked={showStars}
-            onCheckedChange={() => setShowStars(!showStars)}
+            checked={data.showStars}
+            onCheckedChange={() => updateData({showStars: !data.showStars})}
           />
           <Label 
             className="text-gray-600" 
@@ -154,8 +164,8 @@ export function StepThree() {
             id="tech"
             placeholder="React, TypeScript, Node.js"
             className="border-blue-100"
-            value={tech}
-            onChange={e => setTech(e.target.value)}
+            value={data.tech.join(', ')}
+            onChange={e => updateData({tech: e.target.value.split(', ')})}
           />
           <p className="text-xs text-gray-600">Lista de tecnologias que você utiliza, separadas por vírgula</p>
         </div>
@@ -166,15 +176,15 @@ export function StepThree() {
             id="projects"
             placeholder="project-one, project-two"
             className="border-blue-100"
-            value={projects}
-            onChange={e => setProjects(e.target.value)}
+            value={data.projects.join(', ')}
+            onChange={(e) => updateData({ projects: e.target.value.split(", ") })}
           />
           <p className="text-xs text-gray-600">Lista de nomes de repositórios em destaque, separados por vírgula</p>
         </div>
 
         <div className="flex items-center gap-6">
           <Button 
-            onClick={() => console.log('Trocar tema')}
+            onClick={() => setStep(2)}
             type="button" 
             variant="ghost"
             className=" border border-blue-500 text-blue-500 hover:bg-blue-100 hover:text-blue-500 cursor-pointer w-fit"
@@ -184,7 +194,7 @@ export function StepThree() {
           </Button>
 
           <Button 
-            onClick={() => console.log('salvar configurações')}
+            onClick={ handleSave }
             type="button" 
             className="bg-blue-500 text-white hover:bg-blue-600 cursor-pointer"
           >

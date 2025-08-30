@@ -75,8 +75,7 @@ export function StepThree({ setStep }: StepThreeProps) {
         <div className="flex flex-col gap-2">
           <Label className="text-gray-600">LinkedIn</Label>
           <Input 
-            id="linkedin-user" 
-            autoFocus
+            id="linkedin-user"
             placeholder="https://www.linkedin.com/in/meu-linkedin" 
             className="border-blue-100"
             value={data.linkedinUser}

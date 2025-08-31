@@ -11,9 +11,7 @@ export function CopyContentSection() {
 
   const username = 'lucianakyoko';
 
-  const formattedProjects = JSON.stringify(data.projects, null, 2);
   const formattedTechnologies = JSON.stringify(data.tech, null, 2);
-
 
   const content = `
     Acesse meu portfólio em: 
@@ -35,7 +33,6 @@ export function CopyContentSection() {
         "github": "${data.githubUser}"
       },
       "about": "${data.about}",
-      "projects": ${formattedProjects},
       "technologies": ${formattedTechnologies},
       "showStars": ${data.showFollowers},
       "showFollowers": ${data.showStars} 

@@ -11,9 +11,18 @@ type ThemeConfigData = {
   linkedinUser: string;
   about: string;
   tech: string[];
-  projects: string[];
   showStars: boolean;
   showFollowers: boolean;
+  projects: { 
+    repoName: string; 
+    url: string; 
+    stars: number; 
+    description?: string;
+    image?: string; 
+    techs?: string[]; 
+    deploy?: string;
+    highlighted?: boolean;
+  }[];
 }
 
 type ThemeConfigDataProps = {

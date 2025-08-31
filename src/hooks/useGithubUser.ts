@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchGithubUser } from "../services/github";
+import { fetchGithubRepos, fetchGithubUser } from "../services/github";
 
 export function useGithubUser(username: string) {
   return useQuery({
@@ -9,3 +9,13 @@ export function useGithubUser(username: string) {
     retry: false,
   })
 }
+
+export function useGithubRepos(username: string) {
+  return useQuery({
+    queryKey: ['github-repos', username],
+    queryFn: () => fetchGithubRepos(username),
+    enabled: !!username,
+    retry: false,
+  })
+}
+

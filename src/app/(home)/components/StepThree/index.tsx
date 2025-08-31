@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Save } from "lucide-react"
+import { ArrowLeft, ArrowRight } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 import { Switch } from "@/components/ui/switch"
 import { useUser } from "@/contexts/UserContext"
@@ -168,19 +168,9 @@ export function StepThree({ setStep }: StepThreeProps) {
           />
           <p className="text-xs text-gray-600">Lista de tecnologias que você utiliza, separadas por vírgula</p>
         </div>
-
-        <div className="flex flex-col gap-2">
-          <Label className="text-gray-600" htmlFor="projects">Featured Projects</Label>
-          <Input
-            id="projects"
-            placeholder="project-one, project-two"
-            className="border-blue-100"
-            value={data.projects.join(', ')}
-            onChange={(e) => updateData({ projects: e.target.value.split(", ") })}
-          />
-          <p className="text-xs text-gray-600">Lista de nomes de repositórios em destaque, separados por vírgula</p>
-        </div>
-
+        
+        <Separator className="md:col-span-2 my-6"/>
+        
         <div className="flex items-center gap-6">
           <Button 
             onClick={() => setStep(2)}
@@ -197,8 +187,8 @@ export function StepThree({ setStep }: StepThreeProps) {
             type="button" 
             className="bg-blue-500 text-white hover:bg-blue-600 cursor-pointer"
           >
-            Salvar Configurações
-            <Save />
+            Adicionar Projetos
+            <ArrowRight />
           </Button>
         </div>
       </form>

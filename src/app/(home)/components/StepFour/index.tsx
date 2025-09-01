@@ -1,16 +1,16 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import { useEffect, useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Save, Star } from "lucide-react"
+import { ArrowLeft, ArrowRight, Star } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Switch } from "@/components/ui/switch"
 import { useThemeConfig } from "@/contexts/ThemeConfigContext"
 import { useUser } from "@/contexts/UserContext"
 import { useGithubRepos } from "@/hooks/useGithubUser"
+import { toast } from "sonner"
 
 type StepFourProps = {
   setStep: (number: number) => void
@@ -25,6 +25,7 @@ type RepoType = {
 }
 
 type ProjectType = {
+  id: number;
   repoName: string
   url: string
   stars: number
@@ -35,11 +36,15 @@ type ProjectType = {
   highlighted?: boolean
 }
 
+type ProjectField = 'description' | 'deploy' | 'image' | 'repoName' | 'stars' | 'url' | 'techs' | 'highlighted';
+
 export function StepFour({ setStep }: StepFourProps) {
   const { user } = useUser()
   const { data, updateData } = useThemeConfig()
   const { data: repos, isLoading: loadingRepos, isError, error, refetch } = useGithubRepos(data.githubUser)
   const [descriptionLengths, setDescriptionLengths] = useState<Record<string, number>>({})
+  const [urlErrors, setUrlErrors] = useState<Record<string, { image?: string; deploy?: string }>>({})
+  const [techDrafts, setTechDrafts] = useState<Record<string, string>>({});
 
   useEffect(() => {
     if (user?.login && user.login !== data.githubUser) {
@@ -53,6 +58,7 @@ export function StepFour({ setStep }: StepFourProps) {
     if (checked) {
       if (!updatedProjects.some((p: ProjectType) => p.repoName === repo.name)) {
         updatedProjects.push({
+          id: repo.id,
           repoName: repo.name || 'Sem nome',
           url: repo.html_url || '',
           stars: repo.stargazers_count || 0,
@@ -74,6 +80,11 @@ export function StepFour({ setStep }: StepFourProps) {
         delete newLengths[repo.name]
         return newLengths
       })
+      setUrlErrors((prev) => {
+        const newErrors = { ...prev }
+        delete newErrors[repo.name]
+        return newErrors
+      })
     }
     updateData({ projects: updatedProjects })
   }
@@ -85,7 +96,7 @@ export function StepFour({ setStep }: StepFourProps) {
       if (checked) {
         const highlightedCount = updatedProjects.filter((p: ProjectType) => p.highlighted).length
         if (highlightedCount >= 3) {
-          alert('Você pode destacar apenas até 3 projetos.')
+          toast('Você pode destacar apenas até 3 projetos.')
           return
         }
       }
@@ -94,37 +105,77 @@ export function StepFour({ setStep }: StepFourProps) {
     }
   }
 
-  const updateProjectField = (repoName: string, field: string, value: string) => {
-    const updatedProjects = [...(data.projects || [])]
-    const index = updatedProjects.findIndex((p: ProjectType) => p.repoName === repoName)
-    if (index !== -1) {
-      if (field === 'techs') {
-        updatedProjects[index] = {
-          ...updatedProjects[index],
-          [field]: value.split(',').map((s) => s.trim()).filter(Boolean),
-        }
-      } else if (field === 'image' || field === 'deploy') {
-        try {
-          new URL(value)
-          updatedProjects[index] = { ...updatedProjects[index], [field]: value }
-        } catch {
-          alert('Por favor, insira uma URL válida.')
-          return
-        }
-      } else {
-        updatedProjects[index] = { ...updatedProjects[index], [field]: value }
-      }
-      if (field === 'description') {
-        setDescriptionLengths((prev) => ({
-          ...prev,
-          [repoName]: value.length,
-        }))
-      }
-      updateData({ projects: updatedProjects })
+  const updateProjectField = (repoName: string, field: ProjectField, value: string) => {
+  const updatedProjects = [...(data.projects || [])];
+  const index = updatedProjects.findIndex((p: ProjectType) => p.repoName === repoName);
+
+  if (index !== -1) {
+    if (field === 'techs') {
+      const techsArray = value
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean);
+
+      updatedProjects[index] = {
+        ...updatedProjects[index],
+        techs: techsArray,
+      };
+
+      setTechDrafts((prev) => ({ ...prev, [repoName]: value }));
+    } else {
+      updatedProjects[index] = { ...updatedProjects[index], [field]: value };
+    }
+
+    if (field === 'description') {
+      setDescriptionLengths((prev) => ({
+        ...prev,
+        [repoName]: value.length,
+      }));
+    }
+
+    updateData({ projects: updatedProjects });
+  }
+};
+
+  const validateUrl = (value: string, repoName: string, field: 'image' | 'deploy') => {
+    if (!value) {
+      setUrlErrors((prev) => ({
+        ...prev,
+        [repoName]: { ...prev[repoName], [field]: undefined },
+      }))
+      return true
+    }
+    try {
+      new URL(value)
+      setUrlErrors((prev) => ({
+        ...prev,
+        [repoName]: { ...prev[repoName], [field]: undefined },
+      }))
+      return true
+    } catch {
+      setUrlErrors((prev) => ({
+        ...prev,
+        [repoName]: { ...prev[repoName], [field]: 'Por favor, insira uma URL válida.' },
+      }))
+      return false
     }
   }
 
   const handleSave = () => {
+    let isValid = true
+    const updatedProjects = [...(data.projects || [])]
+    updatedProjects.forEach((project) => {
+      if (project.image && !validateUrl(project.image, project.repoName, 'image')) {
+        isValid = false
+      }
+      if (project.deploy && !validateUrl(project.deploy, project.repoName, 'deploy')) {
+        isValid = false
+      }
+    })
+    if (!isValid) {
+      toast('Por favor, corrija as URLs inválidas antes de salvar.')
+      return
+    }
     setStep(5)
   }
 
@@ -163,10 +214,8 @@ export function StepFour({ setStep }: StepFourProps) {
                         onCheckedChange={(checked) => toggleProjectSelection(repo, checked as boolean)}
                       />
                       <label htmlFor={`repo-${repo.name}`} className="text-gray-600 cursor-pointer flex items-center justify-between w-full">
-                        <span>
-                          {repo.name}
-                        </span>
-                        <span className={`${repo.stargazers_count >0 ? 'text-yellow-400' : ''} flex items-center gap-1`}>
+                        <span>{repo.name}</span>
+                        <span className={`${repo.stargazers_count > 0 ? 'text-yellow-400' : ''} flex items-center gap-1`}>
                           <Star size={16} />
                           {repo.stargazers_count}
                         </span>
@@ -181,9 +230,13 @@ export function StepFour({ setStep }: StepFourProps) {
                             className="border-blue-100"
                             value={project.image || ''}
                             onChange={(e) => updateProjectField(repo.name, 'image', e.target.value)}
+                            onBlur={(e) => validateUrl(e.target.value, repo.name, 'image')}
                           />
                           <p className="text-xs text-gray-600">
                             Insira a URL de uma imagem que será exibida como capa do projeto no seu portfólio.
+                            {urlErrors[repo.name]?.image && (
+                              <span className="text-red-600 ml-1">{urlErrors[repo.name].image}</span>
+                            )}
                           </p>
                         </div>
                         <div className="flex flex-col gap-2">
@@ -208,11 +261,20 @@ export function StepFour({ setStep }: StepFourProps) {
                         </div>
                         <div className="flex flex-col gap-2">
                           <Label className="text-gray-600">Tecnologias usadas no Projeto</Label>
-                          <Input
+                           <Input
+                            id={`tech-${repo.name}`}
                             placeholder="Ex.: React, Node.js, MongoDB"
                             className="border-blue-100"
-                            value={project.techs?.join(', ') || ''}
-                            onChange={(e) => updateProjectField(repo.name, 'techs', e.target.value)}
+                            value={techDrafts[repo.name] ?? (project.techs?.join(', ') || '')}
+                            onChange={(e) => {
+                              const raw = e.target.value;
+                              setTechDrafts((prev) => ({ ...prev, [repo.name]: raw }));
+                              updateProjectField(repo.name, 'techs', raw);
+                            }}
+                            onBlur={() => {
+                              const normalized = (project.techs?.join(', ') || '');
+                              setTechDrafts((prev) => ({ ...prev, [repo.name]: normalized }));
+                            }}
                           />
                           <p className="text-xs text-gray-600">Separadas por vírgula</p>
                         </div>
@@ -223,9 +285,13 @@ export function StepFour({ setStep }: StepFourProps) {
                             className="border-blue-100"
                             value={project.deploy || ''}
                             onChange={(e) => updateProjectField(repo.name, 'deploy', e.target.value)}
+                            onBlur={(e) => validateUrl(e.target.value, repo.name, 'deploy')}
                           />
                           <p className="text-xs text-gray-600">
                             Insira a URL onde o projeto está hospedado, se disponível.
+                            {urlErrors[repo.name]?.deploy && (
+                              <span className="text-red-600 ml-1">{urlErrors[repo.name].deploy}</span>
+                            )}
                           </p>
                         </div>
                         <div className="flex items-center gap-2">
@@ -265,8 +331,8 @@ export function StepFour({ setStep }: StepFourProps) {
             type="button"
             className="bg-blue-500 text-white hover:bg-blue-600 cursor-pointer"
           >
-            Salvar configurações
-            <Save />
+            Visualizar Prévia
+            <ArrowRight />
           </Button>
         </div>
       </form>

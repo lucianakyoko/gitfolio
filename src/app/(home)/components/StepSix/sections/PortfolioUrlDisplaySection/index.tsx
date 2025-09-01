@@ -5,7 +5,7 @@ export function PortfolioUrlDisplaySection() {
   const user = 'lucianakyoko'
   return (
     <section className=" w-full flex flex-col gap-4">
-      <Header number={4} title="Personalize a exibição dos seus repositórios" />
+      <Header number={3} title="Finalize a configuração" />
         <p className="text-gray-600">
           Depois que o repositório for criado, seu portfólio estará disponível em:
         </p>

@@ -1,10 +1,14 @@
-import { CircleCheckBig } from "lucide-react";
+import { ArrowLeft, ArrowRight, CircleCheckBig } from "lucide-react";
 import { CreateRepoSection } from "./sections/CreateRepoSection";
 import { CopyContentSection } from "./sections/CopyContentSection";
-import { CustomizeRepoSection } from "./sections/CustomizeRepoSection";
 import { PortfolioUrlDisplaySection } from "./sections/PortfolioUrlDisplaySection";
+import { Button } from "../../../../components/ui/button";
 
-export function StepSix() {
+type StepSixProps = {
+  setStep: (number: number) => void
+}
+
+export function StepSix({ setStep }: StepSixProps) {
   return (
     <div className="py-12 flex flex-col gap-12 items-center">
       <div className="flex flex-col gap-2 items-center">
@@ -18,9 +22,20 @@ export function StepSix() {
       <div className="space-y-8 w-96 md:w-3xl flex flex-col gap-9 pb-12 items-center md:items-start px-4 md:px-6">
         <CreateRepoSection />
         <CopyContentSection />
-        <CustomizeRepoSection />
         <PortfolioUrlDisplaySection />
       </div>
+
+      <div className="flex items-center gap-6">
+          <Button
+            onClick={() => setStep(5)}
+            type="button"
+            variant="ghost"
+            className="border border-blue-500 text-blue-500 hover:bg-blue-100 hover:text-blue-500 cursor-pointer w-fit"
+          >
+            <ArrowLeft />
+            Voltar
+          </Button>
+        </div>
     </div>
   )
 }

@@ -46,7 +46,7 @@ export function StepFive({ setStep }: StepFoureProps) {
           <Button 
             type="submit" 
             className="bg-blue-500 text-white hover:bg-blue-600 cursor-pointer"
-            onClick={() => setStep(5)}
+            onClick={() => setStep(6)}
           >
             <ArrowRight />
             Gerar Portifólio

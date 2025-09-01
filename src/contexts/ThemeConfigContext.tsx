@@ -14,6 +14,7 @@ type ThemeConfigData = {
   showStars: boolean;
   showFollowers: boolean;
   projects: { 
+    id: number;
     repoName: string; 
     url: string; 
     stars: number; 
@@ -50,11 +51,14 @@ export const ThemeConfigProvider = ({ children }: { children: React.ReactNode })
   const [ data, setData ] = useState<ThemeConfigData>(defaultValues);
 
   const updateData = (newData: Partial<ThemeConfigData>) => {
+    console.log('Updating data with:', newData);
     setData(prev => ({
       ...prev,
       ...newData,
     }));
   };
+
+  console.log("configuração ==> ", data)
 
   return (
     <ThemeConfigContext.Provider value={{ data, updateData }}>

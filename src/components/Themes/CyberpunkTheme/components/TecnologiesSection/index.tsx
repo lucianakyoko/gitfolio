@@ -1,9 +1,9 @@
 import { Database } from "lucide-react";
 
-export function TecnologiesSection() {
-  const techMock = [
-    "React", "TypeScript", "Next.js", "Node.js", "TailwindCSS"
-  ]
+type TecnologiesSectionProps = {
+  tecnologies: string[];
+}
+export function TecnologiesSection({ tecnologies}: TecnologiesSectionProps) {
   return (
     <section className="mb-16">
       <div className="flex items-center mb-4">
@@ -13,7 +13,7 @@ export function TecnologiesSection() {
       
       <div className="border border-cyan-500/30 rounded-md p-5 bg-gradient-to-br from-black to-slate-900">
         <div className="flex flex-wrap gap-3">
-          {techMock.map((tech, index) => {
+          {tecnologies.map((tech, index) => {
             const colors = [
               "bg-cyan-900/30 text-cyan-400 border-cyan-500",
               "bg-pink-900/30 text-pink-400 border-pink-500",

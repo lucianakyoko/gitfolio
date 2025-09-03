@@ -1,7 +1,16 @@
 import { Mail, Terminal } from "lucide-react";
 import NextImage from "next/image";
 
-export function Header() {
+type HeaderProps = {
+  userImage: string;
+  userName: string;
+  tagline: string;
+  github: string;
+  email: string;
+  linkedin: string;
+}
+
+export function Header({ userImage, userName, tagline, github, email, linkedin }: HeaderProps) {
   return(
     <div className="relative z-10 border-b border-cyan-500/30">
       <div className="container mx-auto px-4 py-16">
@@ -10,16 +19,16 @@ export function Header() {
             <div className="relative">
               <div className="w-36 h-36 rounded-lg overflow-hidden border-2 border-cyan-500 shadow-[0_0_15px_rgba(0,255,255,0.5)]">
                 <NextImage 
-                  src="https://github.com/lucianakyoko.png" 
-                  alt="Foto de Luciana Kyoko"
+                  src={userImage}
+                  alt={`Foto de ${userName}`}
                   className="w-full h-full object-cover filter contrast-125"
                   width={100}
                   height={100}
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-pink-500/10 to-cyan-500/10"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-pink-500/10 to-cyan-500/10" />
               </div>
-              <div className="absolute -top-2 -left-2 w-6 h-6 bg-pink-500"></div>
-              <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-cyan-500"></div>
+              <div className="absolute -top-2 -left-2 w-6 h-6 bg-pink-500" />
+              <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-cyan-500" />
             </div>
           </div>
           
@@ -32,17 +41,17 @@ export function Header() {
               
               <h1 className="text-4xl font-bold mb-2 tracking-tight">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-pink-500">
-                  Luciana Kyoko
+                  { userName }
                 </span>
               </h1>
               
               <p className="text-cyan-300 mb-4 font-light border-l-2 border-pink-500 pl-3">
-                Front-end Developer
+                { tagline }
               </p>
               
               <div className="flex flex-wrap gap-4 mt-4">
                 <a 
-                  href=""
+                  href={`https://github.com/${github}`}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-cyan-900/30 hover:bg-cyan-800/50 text-cyan-400 px-3 py-1 rounded-sm border border-cyan-500/50 hover:border-cyan-400 transition-colors"
@@ -53,7 +62,7 @@ export function Header() {
                 
 
                 <a 
-                  href={`mailto: `}
+                  href={`mailto:${email} `}
                   className="inline-flex items-center gap-2 bg-pink-900/30 hover:bg-pink-800/50 text-pink-400 px-3 py-1 rounded-sm border border-pink-500/50 hover:border-pink-400 transition-colors"
                 >
                   <Mail className="h-4 w-4" />
@@ -61,7 +70,7 @@ export function Header() {
                 </a>
   
                 <a 
-                  href=""
+                  href={linkedin}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-violet-900/30 hover:bg-violet-800/50 text-violet-400 px-3 py-1 rounded-sm border border-violet-500/50 hover:border-violet-400 transition-colors"

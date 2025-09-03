@@ -20,7 +20,7 @@ export function Header({ userImage, userName, tagline }: HeaderProps) {
             <div className="w-30 h-30 rounded-full overflow-hidden border-4 border-white/50 shadow-xl mb-6 transform hover:scale-105 transition-all duration-300">
               <NextImage 
                 src={userImage}
-                alt={`Foto de ${userImage}`} 
+                alt={`Foto de ${userName}`} 
                 className="w-full h-full object-cover"
                 width={100}
                 height={100}

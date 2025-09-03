@@ -1,25 +1,34 @@
 import { AtSign } from "lucide-react";
 import NextImage from "next/image";
 
-export function Header() {
+type HeaderProps={
+  userImage: string;
+  userName: string;
+  tagline: string;
+  linkedin: string;
+  email: string;
+  github: string;
+};
+
+export function Header({ userName, userImage, tagline, linkedin, email, github }: HeaderProps) {
   return(
     <header className="w-full flex flex-col items-center gap-3 pb-6 border-b border-b-blue-100">
       <div className=" flex flex-col gap-1 items-center">
         <NextImage 
-          src="https://github.com/lucianakyoko.png" 
-          alt="Foto de Perfil de Luciana Kyoko" 
+          src={userImage}
+          alt={`Foto do perfil de ${userName}`}
           className="w-20 h-20 rounded-full"
           width={100}
           height={100}
         />
-        <h1 className="font-bold text-2xl text-blue-950">Luciana Kyoko</h1>
-        <h2 className="font-medium text-gray-600">Fron-end Developer</h2>
+        <h1 className="font-bold text-2xl text-blue-950">{ userName }</h1>
+        <h2 className="font-medium text-gray-600">{ tagline }</h2>
       </div>
 
       <div className="flex items-center gap-4">
         <a 
           className="flex items-center gap-1 text-gray-500 hover:text-gray-600 text-sm"
-          href="http://" 
+          href={`https://github.com/${github}`}
           target="_blank" 
           rel="noopener noreferrer"
         >
@@ -29,7 +38,7 @@ export function Header() {
 
         <a 
           className="flex items-center gap-1 text-gray-500 hover:text-gray-600 text-sm"
-          href="http://" 
+          href={linkedin}
           target="_blank" 
           rel="noopener noreferrer"
         >
@@ -39,7 +48,7 @@ export function Header() {
 
         <a 
           className="flex items-center gap-1 text-gray-500 hover:text-gray-600 text-sm"
-          href="http://" 
+          href={`mailto:${email}`} 
           target="_blank" 
           rel="noopener noreferrer"
         >
@@ -47,7 +56,6 @@ export function Header() {
           <span>e-mail</span>
         </a>
       </div>
-    <a ></a>
     </header>
   )
 }

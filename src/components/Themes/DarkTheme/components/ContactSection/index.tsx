@@ -1,7 +1,9 @@
 import { Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
-export function ContactSection() {
+type ContactSectionProps = {
+  email: string;
+}
+export function ContactSection({ email }:ContactSectionProps ) {
   return (
     <section className="rounded-xl bg-gradient-to-r from-purple-900/50 to-blue-900/50 p-6">
       <div className="flex flex-col md:flex-row gap-8 items-center">
@@ -13,10 +15,15 @@ export function ContactSection() {
         </div>
         
         <div className="flex gap-4">
-          <Button className="bg-purple-600 hover:bg-purple-700">
+          <a 
+            href={`mailto:${email}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-purple-600 hover:bg-purple-700"
+          >
             <Mail className="h-4 w-4 mr-2" />
             Me envie um email
-          </Button>
+          </a>
         </div>
       </div>
     </section>

@@ -4,13 +4,22 @@ import { CreativeTheme } from "../Themes/CreativeTheme";
 import { ProfessionalTheme } from "../Themes/ProfessionalTheme";
 import { DarkTheme } from "../Themes/DarkTheme";
 import { CyberpunkTheme } from "../Themes/CyberpunkTheme";
+import { ThemeConfigData } from '@/contexts/ThemeConfigContext';
 
 type PortfolioRendererProps = {
   themeId: string;
+  data: ThemeConfigData;
 }
-export function PortfolioRenderer({ themeId }: PortfolioRendererProps) {
+
+type ThemeComponentProps = {
+  data: ThemeConfigData;
+}
+
+type ThemeComponent = React.FC<ThemeComponentProps>;
+
+export function PortfolioRenderer({ themeId, data }: PortfolioRendererProps) {
   
-  const themes: Record<string, React.FC> = {
+  const themes: Record<string, ThemeComponent> = {
     minimal: MinimalTheme,
     modern: ModernTheme,
     creative: CreativeTheme,
@@ -21,5 +30,5 @@ export function PortfolioRenderer({ themeId }: PortfolioRendererProps) {
 
   const SelectedTheme = themes[themeId] || MinimalTheme;
 
-  return <SelectedTheme />
+  return <SelectedTheme data={data} />
 }

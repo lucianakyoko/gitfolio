@@ -1,8 +1,8 @@
-import { ArrowLeft, ArrowRight, CircleCheckBig } from "lucide-react";
+import { ArrowLeft, CircleCheckBig } from "lucide-react";
 import { CreateRepoSection } from "./sections/CreateRepoSection";
 import { CopyContentSection } from "./sections/CopyContentSection";
 import { PortfolioUrlDisplaySection } from "./sections/PortfolioUrlDisplaySection";
-import { Button } from "../../../../components/ui/button";
+import { Button } from "@/components/ui/button";
 
 type StepSixProps = {
   setStep: (number: number) => void

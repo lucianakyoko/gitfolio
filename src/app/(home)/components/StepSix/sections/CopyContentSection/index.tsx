@@ -22,7 +22,7 @@ export function CopyContentSection() {
     {
       "gitfolio": "on",
       "name": "${data.name}",
-      "avatar_url": "${user?.avatar_url || ''}",
+      "avatar_url": "${data.avatar_url || ''}",
       "theme": "${theme}",
       "tagline": "${data.tagline}",
       "contact": {

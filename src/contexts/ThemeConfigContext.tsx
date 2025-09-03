@@ -2,10 +2,11 @@
 
 import { createContext, useContext, useState } from "react";
 
-type ThemeConfigData = {
+export type ThemeConfigData = {
   name: string,
   email: string;
   tagline: string;
+  avatar_url: string;
   website: string
   githubUser: string;
   linkedinUser: string;
@@ -35,6 +36,7 @@ const defaultValues: ThemeConfigData = {
   name: '',
   email: '',
   tagline: '',
+  avatar_url: '',
   website: '',
   githubUser: '',
   linkedinUser: '',

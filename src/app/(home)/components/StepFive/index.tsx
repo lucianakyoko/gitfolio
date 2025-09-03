@@ -4,6 +4,7 @@ import { ArrowRight, Download, Palette, SquarePen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PortfolioRenderer } from "@/components/PortfolioRenderer";
 import { useTheme } from "@/contexts/ThemeContext";
+import { useThemeConfig } from "@/contexts/ThemeConfigContext";
 
 type StepFoureProps = {
   setStep: (number: number) => void
@@ -11,6 +12,7 @@ type StepFoureProps = {
 
 export function StepFive({ setStep }: StepFoureProps) {
   const { theme } = useTheme();
+  const { data } = useThemeConfig();
 
   return(
     <div className="py-12 flex flex-col gap-7 items-center">
@@ -55,7 +57,7 @@ export function StepFive({ setStep }: StepFoureProps) {
       </div>
 
       <div className="w-full max-w-5xl h-[600px] overflow-y-auto overflow-x-hidden rounded-2xl border border-blue-100 p-4 bg-white shadow-md relative">
-        <PortfolioRenderer themeId={theme}/>
+        <PortfolioRenderer themeId={theme} data={data} />
       </div>
     </div>
   )

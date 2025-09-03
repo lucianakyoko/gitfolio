@@ -21,8 +21,9 @@ export function StepThree({ setStep }: StepThreeProps) {
   useEffect(() => {
     if (user?.login && user.login !== data.githubUser) {
       updateData({ githubUser: user.login });
+      updateData({ avatar_url: user.avatar_url });
     }
-  }, [user?.login, data.githubUser, updateData]);
+  }, [user?.login, data.githubUser, updateData, user?.avatar_url]);
 
   const maxLength = 500
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -58,6 +59,17 @@ export function StepThree({ setStep }: StepThreeProps) {
             className="border-blue-100"
             value={data.name}
             onChange={e => updateData({name: e.target.value})}
+          />
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <Label className="text-gray-600">Avatar</Label>
+          <Input 
+            id="avatar" 
+            placeholder="Adicione o link do seu avatar" 
+            className="border-blue-100"
+            value={data.avatar_url}
+            onChange={e => updateData({avatar_url: e.target.value})}
           />
         </div>
 

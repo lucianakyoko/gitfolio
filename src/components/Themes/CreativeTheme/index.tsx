@@ -41,9 +41,9 @@ export function CreativeTheme({ data }: CreativeThemeProps) {
           github={data.githubUser}
         />
         <OtherProjectsSection 
-        projects={otherProjects}
-        showStars={data.showStars}
-        github={data.githubUser}
+          projects={otherProjects}
+          showStars={data.showStars}
+          github={data.githubUser}
         />
       </div>
       <Footer />

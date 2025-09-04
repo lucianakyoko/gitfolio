@@ -1,25 +1,34 @@
 import { Mail } from "lucide-react";
 import NextImage from "next/image";
 
-export function Header() {
+type HeaderProps = {
+  userImage: string;
+  userName: string;
+  tagline: string;
+  linkedin: string;
+  email: string;
+  github: string;
+}
+
+export function Header({ userImage, userName, tagline, email, linkedin, github }:HeaderProps) {
   return(
     <header className="bg-sky-100 w-full flex flex-col px-6 md:px-40 py-6">
       <div className=" flex gap-4 items-center">
         <NextImage 
-          src="https://github.com/lucianakyoko.png" 
-          alt="Foto de Perfil de Luciana Kyoko" 
+          src={userImage}
+          alt={`Foto de ${userName}`}
           className="w-30 h-30 rounded-full border-4 border-white"
           width={100}
           height={100}
         />
         <div className="flex flex-col gap-2">
-          <h1 className="font-bold text-2xl text-cyan-600">Luciana Kyoko</h1>
-          <h2 className="text-gray-600">Fron-end Developer</h2>
+          <h1 className="font-bold text-2xl text-cyan-600">{ userName }</h1>
+          <h2 className="text-gray-600">{ tagline }</h2>
 
           <div className="flex items-center gap-4">
             <a 
               className="flex items-center gap-1 text-gray-500 text-sm bg-white px-2 py-1 rounded-md hover:bg-blue-50"
-              href="http://" 
+              href={`https://github.com/${github}`}
               target="_blank" 
               rel="noopener noreferrer"
             >
@@ -29,7 +38,7 @@ export function Header() {
 
             <a 
               className="flex items-center gap-1 text-gray-500 text-sm  bg-white px-2 py-1 rounded-md hover:bg-blue-50"
-              href="http://" 
+              href={linkedin}
               target="_blank" 
               rel="noopener noreferrer"
             >
@@ -39,7 +48,7 @@ export function Header() {
 
             <a 
               className="flex items-center gap-1 text-gray-500 text-sm  bg-white px-2 py-1 rounded-md hover:bg-blue-50"
-              href="http://" 
+              href={`mailto:${email}`}
               target="_blank" 
               rel="noopener noreferrer"
             >

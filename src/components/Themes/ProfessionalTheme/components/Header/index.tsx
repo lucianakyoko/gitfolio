@@ -1,7 +1,16 @@
 import { Mail } from "lucide-react";
 import NextImage from "next/image";
 
-export function Header() {
+type HeaderProps = {
+  userImage: string;
+  userName: string;
+  tagline: string;
+  github: string;
+  email: string;
+  linkedin: string;
+}
+
+export function Header({ userImage, userName, tagline, github, email, linkedin }: HeaderProps) {
   return (
     <header className="bg-gradient-to-r from-gray-900 to-gray-800 text-white">
         <div className="container max-w-5xl mx-auto px-4 py-16">
@@ -9,8 +18,8 @@ export function Header() {
             <div className="md:w-1/3 flex justify-center md:justify-start">
               <div className="w-40 h-40 rounded-2xl overflow-hidden border-4 border-white/10 shadow-xl transform hover:scale-105 transition-transform duration-300">
                 <NextImage 
-                  src="https://github.com/lucianakyoko.png"
-                  alt="Foto Luciana Kyoko"
+                  src={userImage}
+                  alt={`Foto de ${userName}`}
                   className="w-full h-full object-cover" 
                   width={100}
                   height={100}
@@ -19,15 +28,15 @@ export function Header() {
             </div>
             <div className="md:w-2/3 text-center md:text-left space-y-4">
               <h1 className="text-4xl font-bold tracking-tight">
-                Luciana Kyoko
+                { userName }
               </h1>
               <p className="text-xl text-gray-300">
-                Front-end Developer
+                { tagline }
               </p>
               
               <div className="flex flex-wrap gap-6 mt-6 justify-center md:justify-start">
                   <a 
-                    href=""
+                    href={`https://github.com/${github}`}
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-gray-300 hover:text-white flex items-center gap-2 transition-colors"
@@ -37,7 +46,7 @@ export function Header() {
                   </a>
 
                   <a 
-                    href={`mailto:`} 
+                    href={`mailto:${email}`}
                     className="text-gray-300 hover:text-white flex items-center gap-2 transition-colors"
                   >
                     <Mail className="w-5 h-5" />
@@ -45,7 +54,7 @@ export function Header() {
                   </a>
 
                   <a 
-                    href=""
+                    href={linkedin} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-gray-300 hover:text-white flex items-center gap-2 transition-colors"

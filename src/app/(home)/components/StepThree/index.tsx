@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator"
 import { Switch } from "@/components/ui/switch"
 import { useUser } from "@/contexts/UserContext"
 import { useThemeConfig } from "@/contexts/ThemeConfigContext"
+import { useTheme } from "@/contexts/ThemeContext"
 
 type StepThreeProps = {
   setStep: (number: number) => void
@@ -17,13 +18,27 @@ type StepThreeProps = {
 export function StepThree({ setStep }: StepThreeProps) {
   const { user } = useUser();
   const { data, updateData } = useThemeConfig();
+  const { theme } = useTheme();
 
   useEffect(() => {
     if (user?.login && user.login !== data.githubUser) {
       updateData({ githubUser: user.login });
+      updateData({ name: user.name });
       updateData({ avatar_url: user.avatar_url });
+      updateData({ followers: user.followers });
+      updateData({ following: user.following });
+      updateData({ themeId: theme });
     }
-  }, [user?.login, data.githubUser, updateData, user?.avatar_url]);
+  }, [
+    user?.login, 
+    data.githubUser, 
+    updateData, 
+    user?.avatar_url, 
+    user?.name, 
+    user?.followers, 
+    user?.following, 
+    theme
+  ]);
 
   const maxLength = 500
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {

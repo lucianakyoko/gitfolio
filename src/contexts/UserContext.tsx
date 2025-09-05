@@ -7,6 +7,8 @@ type GithubUser = {
   avatar_url: string;
   login: string;
   bio?: string;
+  followers: number;
+  following: number;
 } | null;
 
 type userContextType = {

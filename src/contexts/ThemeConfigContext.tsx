@@ -14,6 +14,9 @@ export type ThemeConfigData = {
   tech: string[];
   showStars: boolean;
   showFollowers: boolean;
+  followers: number;
+  following: number;
+  themeId: string;
   projects: { 
     id: number;
     repoName: string; 
@@ -45,6 +48,9 @@ const defaultValues: ThemeConfigData = {
   projects: [],
   showStars: true,
   showFollowers: true,
+  followers: 0,
+  following: 0,
+  themeId: '',
 }
 
 const ThemeConfigContext = createContext<ThemeConfigDataProps | undefined>(undefined);

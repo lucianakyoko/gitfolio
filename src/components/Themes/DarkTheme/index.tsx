@@ -22,7 +22,7 @@ export function DarkTheme({ data }: DarkThemeProps) {
         userName={data.name}
       />
 
-      <main className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12">
         <AboutSection
           about={data.about}
         />
@@ -37,8 +37,10 @@ export function DarkTheme({ data }: DarkThemeProps) {
         <ContactSection
           email={data.email}
         />
-      </main>
-      <Footer />
+      </div>
+      <Footer 
+        userName={data.name}
+      />
     </div>
   )
 }

@@ -46,7 +46,9 @@ export function CreativeTheme({ data }: CreativeThemeProps) {
           github={data.githubUser}
         />
       </div>
-      <Footer />
+      <Footer 
+        userName={data.name}
+      />
     </div>
   )
 }

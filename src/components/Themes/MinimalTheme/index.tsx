@@ -43,7 +43,9 @@ export function MinimalTheme({ data }: MinimalThemeProps) {
         />
       </div>
 
-      <Footer />
+      <Footer
+        userName={data.name}
+      />
     </div>
   )
 }

@@ -35,7 +35,9 @@ export function CyberpunkTheme({ data }:CyberpunkThemeProps ) {
           showStars={data.showStars}
         />
       </div>
-      <Footer />
+      <Footer 
+        userName={data.name}
+      />
     </div>
   )
 }

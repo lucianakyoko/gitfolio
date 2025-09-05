@@ -46,7 +46,9 @@ export function ProfessionalTheme({ data }: ProfessionalThemeProps) {
         />
       </div>
       
-      <Footer />
+      <Footer
+        userName={data.name}
+      />
     </div>
   )
 }

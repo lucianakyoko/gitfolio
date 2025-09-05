@@ -50,7 +50,9 @@ export function ModernTheme({ data }: ModernThemeProps) {
           github={data.githubUser}
         />
       </div>
-      <Footer />
+      <Footer
+        userName={data.name}
+      />
     </div>
   )
 }

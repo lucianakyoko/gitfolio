@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { PortfolioRenderer } from "@/components/PortfolioRenderer";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useThemeConfig } from "@/contexts/ThemeConfigContext";
+import { downloadMarkdownConfig } from "@/utils/downloadMarkdownConfig";
 
 type StepFoureProps = {
   setStep: (number: number) => void
@@ -40,7 +41,7 @@ export function StepFive({ setStep }: StepFoureProps) {
           <Button 
             type="button" 
             className="bg-white text-gray-600 border border-blue-100  hover:bg-blue-100 cursor-pointer"
-            onClick={() => console.log('baixar configurações')}
+            onClick={() => downloadMarkdownConfig(data)}
           >
             <Download />
             Baixar Configurações

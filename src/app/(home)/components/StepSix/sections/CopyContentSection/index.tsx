@@ -14,7 +14,7 @@ export function CopyContentSection() {
 
   const content = `
     Acesse meu portfólio em: 
-    <a href="https://gitfolio.vercel.app/${user?.login}">
+    <a href="https://gitfolio.vercel.app/${user?.login}"> 🔗
       https://gitfolio.vercel.app/${user?.login}
     </a>
 
@@ -35,7 +35,10 @@ export function CopyContentSection() {
       "technologies": ${formattedTechnologies},
       "showStars": ${data.showStars},
       "showFollowers": ${data.showFollowers},
-      "projects": ${formattedProjects}
+      "followers": ${data.followers},
+      "following": ${data.following},
+      "themeId": ${data.themeId}
+      "projects": ${formattedProjects},
     }
     <!-- GitFolio:end -->
   `
@@ -44,7 +47,7 @@ export function CopyContentSection() {
     <section className="w-full flex flex-col gap-4">
       <Header number={2} title="Copie o conteúdo do seu README.md" />
       <p className="text-gray-600">
-        Copie todo o conteúdo abaixo e cole dentro do arquivo README.md do seu repositório GitFolio
+        Copie todo o conteúdo abaixo e cole dentro do arquivo README.md do seu <span className="font-semibold">repositório especial</span>
       </p>
       <CodeBlock content={content} />
       <div className="flex flex-col gap-2 items-center md:items-start"></div>

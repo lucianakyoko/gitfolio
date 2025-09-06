@@ -66,8 +66,6 @@ export const ThemeConfigProvider = ({ children }: { children: React.ReactNode })
     }));
   };
 
-  console.log("configuração ==> ", data)
-
   return (
     <ThemeConfigContext.Provider value={{ data, updateData }}>
       { children }

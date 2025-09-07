@@ -4,21 +4,23 @@ export function downloadMarkdownConfig(config: ThemeConfigData) {
   const content = 
   `<!--GitFolio:start-->
     {
-      "name": ${config.name},
-      "email": ${config.email},
-      "tagline": ${config.tagline},
-      "avatar_url": ${config.avatar_url},
-      "website": ${config.website},
-      "githubUser": ${config.githubUser},
-      "linkedinUser": ${config.linkedinUser},
-      "about": ${config.about},
-      "tech": ${config.about},
-      "showStars": ${config.showStars},
-      "showFollowers": ${config.showFollowers},
-      "followers": ${config.followers},
-      "following": ${config.following},
-      "themeId": ${config.themeId},
-      "projects": ${config.projects},
+      "gitfolio": "on",
+      "name": "${config.name}",
+      "email": "${config.email}",
+      "tagline": "${config.tagline}",
+      "avatar_url": "${config.avatar_url}",
+      "website": "${config.website}",
+      "githubUser": "${config.githubUser}",
+      "linkedinUser": "${config.linkedinUser}",
+      "about": "${config.about}",
+      "tech": ${JSON.stringify(config.tech)},,
+      "showStars": "${config.showStars}",
+      "showFollowers": "${config.showFollowers}",
+      "followers": "${config.followers}",
+      "following": "${config.following}",
+      "themeId": "${config.themeId}",
+      "projects": ${JSON.stringify(config.projects, null, 2)}
+      }))},
     <!--GitFolio:end--> `
 
   const blob = new Blob([content], {type: "text/markdown;charset=utf-8"})

@@ -1,6 +1,7 @@
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { SquareArrowOutUpRight, Star } from "lucide-react";
 import NextImage from "next/image";
+import { capitalizeName } from "@/utils/capitalizeNames";
 
 type Project = {
   id: number;
@@ -32,7 +33,7 @@ export function OtherProjectsSection({ projects, showStars, github }: OtherProje
           >
             <CardHeader>
               <div className="flex justify-between">
-                <p className="font-bold text-cyan-700">{ project.repoName }</p>
+                <p className="font-bold text-cyan-700">{ capitalizeName(project.repoName) }</p>
                 {showStars && (
                   <div className="flex items-center gap-1 bg-amber-100 py-0.5 px-2 rounded-2xl">
                     <Star size={12} color="#dea918"/>

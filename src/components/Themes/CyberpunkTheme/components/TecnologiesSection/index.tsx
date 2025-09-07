@@ -25,7 +25,7 @@ export function TecnologiesSection({ tecnologies}: TecnologiesSectionProps) {
             return (
               <span 
                 key={tech}
-                className={`inline-flex items-center px-3 py-1 rounded-sm ${colors[colorIndex]} border text-sm font-medium shadow-[0_0_5px_rgba(0,255,255,0.3)]`}
+                className={`inline-flex items-center gap-8 px-3 py-1 rounded-sm ${colors[colorIndex]} border text-sm font-medium shadow-[0_0_5px_rgba(0,255,255,0.3)]`}
               >
                 {tech}
               </span>

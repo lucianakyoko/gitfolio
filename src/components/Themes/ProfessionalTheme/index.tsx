@@ -30,17 +30,20 @@ export function ProfessionalTheme({ data }: ProfessionalThemeProps) {
           about={data.about}
         />
         <GithubStatsSection
-          showStars={data.showStars}
           showFollowers={data.showFollowers}
-          stars={0} 
-          followers={0}
-          following={0}
+          followers={data.followers}
+          following={data.following}
         />
         <TecnologiesSection
           tecnologies={data.tech}
         />
         <HighlightProjectsSection
           projects={highlightedProjects}
+          showStars={data.showStars}
+          github={data.githubUser}
+        />
+        <HighlightProjectsSection
+          projects={otherProjects}
           showStars={data.showStars}
           github={data.githubUser}
         />

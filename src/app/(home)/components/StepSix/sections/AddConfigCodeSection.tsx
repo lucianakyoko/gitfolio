@@ -1,5 +1,4 @@
 import { ChevronRight, ExternalLink } from "lucide-react";
-import { CodeBlock } from "@/components/CodeBlock";
 import { Header } from "../Header";
 import { useUser } from "@/contexts/UserContext";
 
@@ -8,7 +7,7 @@ export function AddConfigCodeSection() {
 
   return (
     <section className="w-full flex flex-col gap-4">
-      <Header number={1} title="Crie um novo repositório no GitHub"/>
+      <Header number={1} title="Crie um repositório especial no GitHub"/>
 
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">

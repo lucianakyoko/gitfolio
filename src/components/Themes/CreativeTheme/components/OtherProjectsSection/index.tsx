@@ -3,6 +3,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import NextImage from "next/image";
+import { capitalizeName } from "@/utils/capitalizeNames";
 
 type Project = {
   id: number;
@@ -55,11 +56,11 @@ export function OtherProjectsSection({ projects, showStars, github }: OtherProje
 
                 <CardContent className="p-6">
                   <div className="flex justify-between items-start mb-3">
-                    <h3 className="text-lg font-bold text-gray-800">{project.repoName}</h3>
+                    <h3 className="text-lg font-bold text-gray-800">{capitalizeName(project.repoName)}</h3>
                     {showStars && (
                       <div className="flex items-center gap-1 text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full">
                         <Star className="w-3.5 h-3.5" />
-                        <span className="text-sm font-medium">12</span>
+                        <span className="text-sm font-medium">{project.stars}</span>
                       </div>
                     )}
                   </div>

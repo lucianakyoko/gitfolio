@@ -19,7 +19,11 @@ export function CodeBlock({content}: CodeBlockProps) {
 
   return (
     <div className="bg-white rounded border border-blue-100 p-4 mb-4 w-full">
-      <pre className="text-sm overflow-auto whitespace-pre-wrap bg-gray-800 text-white p-4 rounded-md overflow-x-auto">{content}</pre>
+      <pre 
+        className="text-sm overflow-auto whitespace-pre-wrap bg-gray-800 text-white p-4 rounded-md overflow-x-auto max-h-[360px] overflow-y-auto"
+      >
+        {content}
+      </pre>
 
       <div className="flex justify-end mt-2">
         <Button

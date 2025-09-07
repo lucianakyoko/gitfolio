@@ -34,11 +34,9 @@ export function ModernTheme({ data }: ModernThemeProps) {
           tecnologies={data.tech}
         />
         <GithubStatsSection
-          showStars={data.showStars}
           showFollowers={data.showFollowers}
-          stars={0} 
-          followers={0}
-          following={0}
+          followers={data.followers}
+          following={data.following}
         />
         <HighlightProjectsSection
           projects={highlightedProjects}

@@ -19,7 +19,7 @@ export function ContactSection({ email }:ContactSectionProps ) {
             href={`mailto:${email}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-purple-600 hover:bg-purple-700"
+            className="flex items-center bg-purple-600 hover:bg-purple-700 p-4 rounded-lg"
           >
             <Mail className="h-4 w-4 mr-2" />
             Me envie um email

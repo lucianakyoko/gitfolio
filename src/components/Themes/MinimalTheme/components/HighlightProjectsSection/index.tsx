@@ -1,6 +1,7 @@
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { SquareArrowOutUpRight } from "lucide-react";
 import NextImage from "next/image";
+import { capitalizeName } from "@/utils/capitalizeNames";
 
 type Project = {
   id: number;
@@ -28,7 +29,7 @@ export function HighlightProjectsSection({ projects, github }: HighlightProjects
           <Card 
             key={project.id}
             className="border-blue-100 hover:border-blue-500 sm:w-full md:w-1/3 lg:w-[266px]">
-            <CardHeader className="font-bold text-blue-900">{project.repoName}</CardHeader>
+            <CardHeader className="font-bold text-blue-900">{capitalizeName(project.repoName)}</CardHeader>
 
             <CardContent className="flex flex-col gap-1">
               <NextImage 

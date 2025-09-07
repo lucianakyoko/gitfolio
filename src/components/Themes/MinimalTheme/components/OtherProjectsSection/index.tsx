@@ -1,6 +1,7 @@
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { SquareArrowOutUpRight, Star } from "lucide-react";
 import NextImage from "next/image";
+import { capitalizeName } from "@/utils/capitalizeNames";
 
 type Project = {
   id: number;
@@ -32,11 +33,11 @@ export function OtherProjectsSection({ projects, showStars, github }: OtherProje
             className="border-blue-100 hover:border-blue-500 w-full">
             <CardHeader>
               <div className="flex justify-between">
-                <p className="font-bold text-blue-900">{project.repoName}</p>
+                <p className="font-bold text-blue-900">{capitalizeName(project.repoName)}</p>
                 {showStars && (
                   <div className="flex items-center gap-1">
                     <Star size={12} color="#9E9E9E"/>
-                    <span className="text-gray-500">2</span>
+                    <span className="text-gray-500">{project.stars}</span>
                   </div>
                 )}
               </div>
@@ -44,7 +45,7 @@ export function OtherProjectsSection({ projects, showStars, github }: OtherProje
 
             <CardContent className="flex gap-1">
               <NextImage 
-                src={project.url}
+                src={project.image || ""}
                 alt="imagem do projeto XYZ"
                 className="rounded-lg w-[120px]"
                 width={120}

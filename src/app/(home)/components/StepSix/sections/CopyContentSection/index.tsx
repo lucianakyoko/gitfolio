@@ -22,15 +22,14 @@ export function CopyContentSection() {
     {
       "gitfolio": "on",
       "name": "${data.name}",
+      "user": "${data.user}",
       "avatar_url": "${data.avatar_url || ''}",
       "theme": "${theme}",
       "tagline": "${data.tagline}",
-      "contact": {
-        "email": "${data.email}",
-        "website": "${data.website}",
-        "linkedin": "${data.linkedinUser}",
-        "github": "${data.githubUser}"
-      },
+      "email": "${data.email}",
+      "website": "${data.website}",
+      "linkedin": "${data.linkedinUser}",
+      "github": "${data.githubUser}",
       "about": "${data.about}",
       "technologies": ${formattedTechnologies},
       "showStars": ${data.showStars},

@@ -3,6 +3,7 @@
 import { createContext, useContext, useState } from "react";
 
 export type ThemeConfigData = {
+  gitfolio: "on" | "off",
   name: string,
   email: string;
   tagline: string;
@@ -36,6 +37,7 @@ type ThemeConfigDataProps = {
 }
 
 const defaultValues: ThemeConfigData = {
+  gitfolio: "on",
   name: '',
   email: '',
   tagline: '',

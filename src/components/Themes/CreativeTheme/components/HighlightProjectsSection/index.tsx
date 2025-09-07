@@ -2,6 +2,7 @@ import { ExternalLink, Sparkles, Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import NextImage from "next/image";
+import { capitalizeName } from "@/utils/capitalizeNames";
 
 type Project = {
   id: number;
@@ -49,7 +50,7 @@ export function HighlightProjectsSection({ projects, showStars, github }: Highli
 
             <CardContent className="p-6">
               <div className="flex justify-between items-start mb-4">
-                <h3 className="text-xl font-bold text-gray-800">{project.repoName}</h3>
+                <h3 className="text-xl font-bold text-gray-800">{capitalizeName(project.repoName)}</h3>
                 {showStars && (
                   <div className="flex items-center gap-1 text-amber-600 bg-amber-50 px-2 py-1 rounded-full">
                     <Star className="w-4 h-4" />

@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, ExternalLink, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import NextImage from "next/image";
+import { capitalizeName } from "@/utils/capitalizeNames";
 
 type Project = {
   id: number;
@@ -23,7 +24,7 @@ type HighlightProjectsSectionProps = {
 export function HighlightProjectsSection({ projects, showStars, github }: HighlightProjectsSectionProps) {
   return (
     <section>
-      <h2 className="text-3xl font-bold text-gray-800 mb-8">Featured Projects</h2>
+      <h2 className="text-3xl font-bold text-gray-800 mb-8">Projetos Em Destaque</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {projects.map(project => (
           <Card
@@ -51,7 +52,7 @@ export function HighlightProjectsSection({ projects, showStars, github }: Highli
             
             <CardContent className="p-6 space-y-4">
               <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.repoName}</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">{capitalizeName(project.repoName)}</h3>
                   <p className="text-gray-600">
                     { project.description }
                   </p>

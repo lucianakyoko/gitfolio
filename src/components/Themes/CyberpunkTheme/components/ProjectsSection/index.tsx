@@ -1,4 +1,5 @@
 import { ExternalLink, Star, Zap } from "lucide-react"
+import { capitalizeName } from "@/utils/capitalizeNames";
 
 type Project = {
   id: number;
@@ -27,7 +28,7 @@ export function ProjectsSection({ projects, showStars, github }: ProjectsSection
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {projects.map(project => (
+        {projects.map((project, index) => (
           <div 
             key={project.id}
             className="group relative border border-cyan-500/30 hover:border-cyan-400/80 bg-gradient-to-br from-black to-slate-900/90 rounded-md overflow-hidden transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)]">
@@ -38,9 +39,9 @@ export function ProjectsSection({ projects, showStars, github }: ProjectsSection
             <div className="p-5 relative">
               <div className="flex justify-between items-start mb-3">
                 <div className="flex items-center">
-                  <span className="text-pink-500 mr-2 font-bold">[{String(3).padStart(2, '0')}]</span>
+                  <span className="text-pink-500 mr-2 font-bold">[{String(index).padStart(2, '0')}]</span>
                   <h3 className="text-xl font-bold text-cyan-300 group-hover:text-cyan-200 transition-colors">
-                    { project.repoName }
+                    { capitalizeName(project.repoName) }
                   </h3>
                 </div>
                 {showStars && (
@@ -55,11 +56,11 @@ export function ProjectsSection({ projects, showStars, github }: ProjectsSection
                 { project.description }
               </div>
 
-                <div className="mt-2 mb-4">
+                <div className="mt-2 mb-4 flex flex-wrap gap-3">
                   {project.techs?.map(tech => (
                     <span 
                       key={tech}
-                      className="inline-flex items-center px-2 py-1 rounded bg-cyan-900/40 text-cyan-300 text-xs"
+                      className="inline-flex items-center gap px-2 py-1 rounded bg-cyan-900/40 text-cyan-300 text-xs"
                     >
                       <span className="w-2 h-2 rounded-full bg-cyan-400 mr-2" />
                       { tech }

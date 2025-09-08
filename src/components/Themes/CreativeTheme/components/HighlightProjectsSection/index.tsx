@@ -36,7 +36,7 @@ export function HighlightProjectsSection({ projects, showStars, github }: Highli
           >
             <div className="h-48 overflow-hidden rounded-t-lg">
               <NextImage 
-                src={project.image || ""}
+                src={project.image || "/generic-project.png"}
                 alt={`Imagem do projeto ${project.repoName}`}
                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 onError={(e) => {

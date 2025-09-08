@@ -34,7 +34,7 @@ export function HighlightProjectsSection({ projects, showStars, github }: Highli
             <div className="relative">
                 <div className="aspect-video w-full overflow-hidden">
                   <NextImage
-                    src={project.image || ""}
+                    src={project.image || "/generic-project.png"}
                     alt={`cover`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     width={220}

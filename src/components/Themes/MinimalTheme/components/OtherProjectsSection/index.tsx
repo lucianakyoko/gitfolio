@@ -45,7 +45,7 @@ export function OtherProjectsSection({ projects, showStars, github }: OtherProje
 
             <CardContent className="flex gap-1">
               <NextImage 
-                src={project.image || ""}
+                src={project.image || "/generic-project.png"}
                 alt="imagem do projeto XYZ"
                 className="rounded-lg w-[120px]"
                 width={120}

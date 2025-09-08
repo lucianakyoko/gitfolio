@@ -34,7 +34,7 @@ export function HighlightProjectsSection({ projects, github }: HighlightProjects
 
             <CardContent className="flex flex-col gap-1">
               <NextImage
-                src={project.image || ""}
+                src={project.image || "/generic-project.png"}
                 alt="imagem do projeto XYZ"
                 className="rounded-lg"
                 width={220}

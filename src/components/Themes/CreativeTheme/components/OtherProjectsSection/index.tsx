@@ -43,15 +43,15 @@ export function OtherProjectsSection({ projects, showStars, github }: OtherProje
               <Card className="h-full group hover:shadow-md transition-all duration-300 border-0">
                 <div className="h-40 overflow-hidden rounded-t-lg">
                   <NextImage 
-                src={project.image || ""}
-                alt={`Imagem do projeto ${project.repoName}`}
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                }}
-                width={220}
-                height={120}
-              />
+                    src={project.image || "/generic-project.png"}
+                    alt={`Imagem do projeto ${project.repoName}`}
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                    width={220}
+                    height={120}
+                  />
                 </div>
 
                 <CardContent className="p-6">

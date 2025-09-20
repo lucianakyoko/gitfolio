@@ -4,9 +4,9 @@ type TecnologiesSectionProps = {
 
 export function TecnologiesSection({ tecnologies }:TecnologiesSectionProps) {
   return(
-    <section className="sm:w-full lg:w-3xl flex flex-col gap-2">
+    <section className="w-full lg:w-3xl flex flex-col gap-2">
       <h3 className="font-semibold text-blue-950 text-xl">Tecnologias</h3>
-      <ul className="flex gap-4">
+      <ul className="flex flex-wrap gap-4">
         {tecnologies.map(tech => (
           <li 
             key={tech}

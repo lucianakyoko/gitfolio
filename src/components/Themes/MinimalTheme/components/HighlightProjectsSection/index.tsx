@@ -28,14 +28,14 @@ export function HighlightProjectsSection({ projects, github }: HighlightProjects
         {projects.map(project => (
           <Card 
             key={project.id}
-            className="border-blue-100 hover:border-blue-500 sm:w-full md:w-1/3 lg:w-[266px]">
+            className="border-blue-100 hover:border-blue-500 w-full md:w-1/3 lg:w-[266px]">
             <CardHeader className="font-bold text-blue-900">{capitalizeName(project.repoName)}</CardHeader>
 
             <CardContent className="flex flex-col gap-1">
               <NextImage 
                 src={project.image || "/generic-project.png"} 
                 alt={`Imagem do projeto ${project.repoName}`}
-                className="rounded-lg"
+                className="rounded-lg object-cover h-[120px]"
                 width={220}
                 height={120}
               />

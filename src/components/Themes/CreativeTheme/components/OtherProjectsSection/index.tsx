@@ -41,7 +41,7 @@ export function OtherProjectsSection({ projects, showStars, github }: OtherProje
               className="md:basis-1/2 lg:basis-1/3"
             >
               <Card className="h-full group hover:shadow-md transition-all duration-300 border-0">
-                <div className="h-40 overflow-hidden rounded-t-lg">
+                <div className="h-40 overflow-hidden -mt-[24px] rounded-t-lg">
                   <NextImage 
                     src={project.image || "/generic-project.png"}
                     alt={`Imagem do projeto ${project.repoName}`}
@@ -107,8 +107,8 @@ export function OtherProjectsSection({ projects, showStars, github }: OtherProje
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="-left-12 bg-white hover:bg-gray-50" />
-        <CarouselNext className="-right-12 bg-white hover:bg-gray-50" />
+        <CarouselPrevious className="-left-3 md:-left-12 w-[40px] h-[40px] bg-white hover:bg-gray-50 cursor-pointer text-purple-800" />
+        <CarouselNext className="-right-3 md:-right-12 w-[40px] h-[40px] bg-white hover:bg-gray-50 cursor-pointer text-purple-800" />
       </Carousel>
     </section>
   )

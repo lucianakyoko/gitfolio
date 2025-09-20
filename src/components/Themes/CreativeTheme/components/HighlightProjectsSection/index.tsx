@@ -34,7 +34,7 @@ export function HighlightProjectsSection({ projects, showStars, github }: Highli
             key={project.id}
             className="group hover:shadow-lg transition-all duration-300 border-0"
           >
-            <div className="h-48 overflow-hidden rounded-t-lg">
+            <div className="h-48 overflow-hidden -mt-[24px] rounded-t-lg">
               <NextImage 
                 src={project.image || "/generic-project.png"}
                 alt={`Imagem do projeto ${project.repoName}`}

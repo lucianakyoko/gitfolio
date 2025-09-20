@@ -15,7 +15,7 @@ export function MinimalTheme({ data }: MinimalThemeProps) {
   const otherProjects = data.projects.filter(project => project.highlighted === false);
 
   return(
-    <div className="w-full flex flex-col items-center py-10">
+    <div className="w-full flex flex-col items-center py-10 p-4 sm:p-7">
       <Header 
         email={data.email}
         github={data.githubUser}
@@ -25,7 +25,7 @@ export function MinimalTheme({ data }: MinimalThemeProps) {
         userName={data.name}
       />
 
-      <div className=" sm:w-full px-8 lg:w-4xl flex flex-col gap-8 mt-7">
+      <div className="p-4 sm:p-7 w-full px-8 lg:w-4xl flex flex-col gap-8 mt-7">
         <AboutSection 
           about={data.about}
         />

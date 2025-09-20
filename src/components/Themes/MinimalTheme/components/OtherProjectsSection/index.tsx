@@ -43,16 +43,16 @@ export function OtherProjectsSection({ projects, showStars, github }: OtherProje
               </div>
             </CardHeader>
 
-            <CardContent className="flex gap-1">
+            <CardContent className="flex gap-3">
               <NextImage 
                 src={project.image || "/generic-project.png"}
-                alt="imagem do projeto XYZ"
-                className="rounded-lg w-[120px]"
+                alt={`Imagem do projeto ${project.repoName}`}
+                className="rounded-lg w-[160px] h-[120px] object-cover"
                 width={120}
                 height={120}
               />
 
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-2">
                 <p className="text-gray-600 text-sm">
                   {project.description}
                 </p>

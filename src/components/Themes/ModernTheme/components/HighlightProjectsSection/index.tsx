@@ -32,11 +32,11 @@ export function HighlightProjectsSection({ projects, github }: HighlightProjects
           >
             <CardHeader className="font-bold text-cyan-700">{ capitalizeName(project.repoName) }</CardHeader>
 
-            <CardContent className="flex flex-col gap-1">
+            <CardContent className="flex flex-col gap-4">
               <NextImage
                 src={project.image || "/generic-project.png"}
                 alt="imagem do projeto XYZ"
-                className="rounded-lg"
+                className="rounded-lg object-cover h-[120px]"
                 width={220}
                 height={120}
               />

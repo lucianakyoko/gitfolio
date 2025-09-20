@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, ExternalLink, Star } from "lucide-react";
+import { ExternalLink, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import NextImage from "next/image";
 import { capitalizeName } from "@/utils/capitalizeNames";
@@ -32,7 +32,7 @@ export function HighlightProjectsSection({ projects, showStars, github }: Highli
             className="group overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white"
           >
             <div className="relative">
-                <div className="aspect-video w-full overflow-hidden">
+                <div className="aspect-video w-full -mt-[24px] overflow-hidden">
                   <NextImage
                     src={project.image || "/generic-project.png"}
                     alt={`cover`}

@@ -143,7 +143,7 @@ export function StepThree({ setStep }: StepThreeProps) {
         </div>
 
         <div className="md:col-span-2 flex flex-col gap-2">
-          <Label className="text-gray-600" htmlFor="about">About</Label>
+          <Label className="text-gray-600" htmlFor="about">Sobre</Label>
           <Textarea
             id="about"
             placeholder="Fale um pouco sobre você e seu trabalho"
@@ -185,7 +185,7 @@ export function StepThree({ setStep }: StepThreeProps) {
         <Separator className="md:col-span-2 my-6"/>
 
         <div className="flex flex-col gap-2">
-          <Label className="text-gray-600" htmlFor="tech">Technologies</Label>
+          <Label className="text-gray-600" htmlFor="tech">Tecnogias</Label>
           <Input
             id="tech"
             placeholder="React, TypeScript, Node.js"

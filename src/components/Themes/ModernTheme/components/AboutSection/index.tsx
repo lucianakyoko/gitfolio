@@ -1,3 +1,5 @@
+import { removeNewLines } from "@/utils/removeNewLines";
+
 type AboutSectionProps = {
   about: string;
 };
@@ -9,7 +11,7 @@ export function AboutSection({ about }:AboutSectionProps) {
         Sobre Mim
       </h3>
       <p className="text-gray-500">
-        { about }
+        { removeNewLines(about) }
       </p>
     </section>
   )

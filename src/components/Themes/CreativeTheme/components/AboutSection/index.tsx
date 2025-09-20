@@ -1,4 +1,5 @@
 import { Palette } from "lucide-react";
+import { removeNewLines } from "@/utils/removeNewLines";
 
 type AboutSectionProps = {
   about: string;
@@ -14,7 +15,7 @@ export function AboutSection({ about }: AboutSectionProps) {
       <div className="bg-white rounded-xl shadow-sm p-8 relative overflow-hidden">
         <div className="relative z-10">
           <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
-            { about }
+            { removeNewLines(about) }
           </p>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { Code } from "lucide-react";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { removeNewLines } from "@/utils/removeNewLines";
 
 type AboutSectionProps = {
   about: string;
@@ -24,7 +24,7 @@ export function AboutSection({ about }: AboutSectionProps) {
         <div className="p-4 border-t border-cyan-500/30">
           
           <div className="mt-2 text-cyan-100 leading-relaxed whitespace-pre-wrap font-light">
-            { about }
+            { removeNewLines(about) }
           </div>
         </div>
       </div>

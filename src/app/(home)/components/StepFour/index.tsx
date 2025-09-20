@@ -10,7 +10,7 @@ import { Switch } from "@/components/ui/switch"
 import { useThemeConfig } from "@/contexts/ThemeConfigContext"
 import { useUser } from "@/contexts/UserContext"
 import { useGithubRepos } from "@/hooks/useGithubUser"
-import { toast } from "sonner"
+import { toast, Toaster } from "sonner"
 
 type StepFourProps = {
   setStep: (number: number) => void
@@ -90,20 +90,21 @@ export function StepFour({ setStep }: StepFourProps) {
   }
 
   const toggleProjectHighlight = (repoName: string, checked: boolean) => {
-    const updatedProjects = [...(data.projects || [])]
-    const index = updatedProjects.findIndex((p: ProjectType) => p.repoName === repoName)
+    const updatedProjects = [...(data.projects || [])];
+    const index = updatedProjects.findIndex((p: ProjectType) => p.repoName === repoName);
+
     if (index !== -1) {
       if (checked) {
-        const highlightedCount = updatedProjects.filter((p: ProjectType) => p.highlighted).length
+        const highlightedCount = updatedProjects.filter((p: ProjectType) => p.highlighted).length;
         if (highlightedCount >= 3) {
-          toast('Você pode destacar apenas até 3 projetos.')
-          return
+          toast.error('Você pode destacar no máximo 3 projetos.');
+          return;
         }
       }
-      updatedProjects[index] = { ...updatedProjects[index], highlighted: checked }
-      updateData({ projects: updatedProjects })
+      updatedProjects[index] = { ...updatedProjects[index], highlighted: checked };
+      updateData({ projects: updatedProjects });
     }
-  }
+  };
 
   const updateProjectField = (repoName: string, field: ProjectField, value: string) => {
   const updatedProjects = [...(data.projects || [])];
@@ -296,6 +297,7 @@ export function StepFour({ setStep }: StepFourProps) {
                         </div>
                         <div className="flex items-center gap-2">
                           <Switch
+                            className="cursor-pointer"
                             id={`highlight-${repo.name}`}
                             checked={project.highlighted || false}
                             onCheckedChange={(checked) => toggleProjectHighlight(repo.name, checked)}
@@ -336,6 +338,7 @@ export function StepFour({ setStep }: StepFourProps) {
           </Button>
         </div>
       </form>
+      <Toaster />
     </div>
   )
 }

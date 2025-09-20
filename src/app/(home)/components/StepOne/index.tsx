@@ -85,7 +85,7 @@ export function StepOne({ setStep }: StepOneProps) {
             <span className="font-bold text-blue-300 text-2xl">3</span>
             <p className="font-semibold text-md">Gere e Publique</p>
           </div>
-          <p className='text-center'>Crie um repositório GitFolio e seu portfólio estará disponível em gitfolio.com/seu-usuario</p>
+          <p className='text-center'>Adicione as configurações no seu repositório especial e seu Gitfolio estará disponível em <span className='text-sm'>gitfolio.vercel.app/seu-usuario</span></p>
         </div>
       </div>
     </div>

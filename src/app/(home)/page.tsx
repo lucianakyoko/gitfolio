@@ -17,24 +17,22 @@ export default function Home() {
   const [ step, setStep ] = useState(1);
 
   return (
-    <ReactQueryProvider>
-      <UserProvider>
-        <ThemeProvider>
-          <ThemeConfigProvider>
-            <div>
-              <Header />
-              <main className="m-10">
-                { step === 1 && <StepOne setStep={setStep} /> }
-                { step === 2 && <StepTwo setStep={setStep} /> }
-                { step === 3 && <StepThree setStep={setStep} /> }
-                { step === 4 && <StepFour setStep={setStep} />}
-                { step === 5 && <StepFive setStep={setStep} /> }
-                { step === 6 && <StepSix setStep={setStep} /> }
-              </main>
-            </div>
-          </ThemeConfigProvider>
-        </ThemeProvider>
-      </UserProvider>
-    </ReactQueryProvider>
+    <UserProvider>
+      <ThemeProvider>
+        <ThemeConfigProvider>
+          <div>
+            <Header />
+            <main className="m-10">
+              { step === 1 && <StepOne setStep={setStep} /> }
+              { step === 2 && <StepTwo setStep={setStep} /> }
+              { step === 3 && <StepThree setStep={setStep} /> }
+              { step === 4 && <StepFour setStep={setStep} />}
+              { step === 5 && <StepFive setStep={setStep} /> }
+              { step === 6 && <StepSix setStep={setStep} /> }
+            </main>
+          </div>
+        </ThemeConfigProvider>
+      </ThemeProvider>
+    </UserProvider>
   );
 }

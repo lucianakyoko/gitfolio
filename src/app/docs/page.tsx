@@ -3,9 +3,7 @@ import NextLink from 'next/link';
 import { ArrowLeft, BookOpen } from "lucide-react";
 import { GettingStarted } from './sections/GettingStarted';
 import { RepositorySetup } from './sections/RepositorySetup';
-import { AdvancedConfiguration } from './sections/AdvancedConfiguration';
 import { Template } from './sections/Template';
-import { ProjectDisplay } from './sections/ProjectDisplay';
 import { Faq } from './sections/Faq';
 
 export default function Documentarion() {
@@ -48,14 +46,9 @@ export default function Documentarion() {
               <li>
                 <a href="#repository-setup" className="text-cyan-600 hover:underline">Configurações do Repositório</a>
               </li>
-              <li>
-                <a href="#configuration" className="text-cyan-600 hover:underline">Configuração Avançada</a>
-              </li>
+              
               <li>
                 <a href="#templates" className="text-cyan-600 hover:underline">Temas</a>
-              </li>
-              <li>
-                <a href="#project-display" className="text-cyan-600 hover:underline">Exibição de Projetos</a>
               </li>
               <li>
                 <a href="#faqs" className="text-cyan-600 hover:underline">Perguntas Frequentes</a>
@@ -66,9 +59,9 @@ export default function Documentarion() {
           <div className="md:col-span-3 space-y-12">
             <GettingStarted />
             <RepositorySetup />
-            <AdvancedConfiguration />
+            {/* <AdvancedConfiguration /> */}
             <Template />
-            <ProjectDisplay />
+            {/* <ProjectDisplay /> */}
             <Faq />
           </div>
         </div>

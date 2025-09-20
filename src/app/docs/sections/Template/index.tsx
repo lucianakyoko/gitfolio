@@ -35,7 +35,7 @@ export function Template() {
             <div className="p-3 text-center font-medium">Creative</div>
             <div className="p-4">
               <p className="text-sm">
-                Design ousado com elementos de layout únicos e efeitos visuais marcantes — ideal para profissionais criativos que querem se destacar.
+                Design ousado com elementos de layout únicos e efeitos visuais marcantes, ideal para profissionais criativos que querem se destacar.
               </p>
             </div>
           </div>
@@ -53,7 +53,7 @@ export function Template() {
             <div className="p-3 text-center font-medium">Dark</div>
             <div className="p-4">
               <p className="text-sm">
-                Interface com tema escuro e elementos de alto contraste — ideal para desenvolvedores e entusiastas do modo noturno.
+                Interface com tema escuro e elementos de alto contraste, ideal para desenvolvedores e entusiastas do modo noturno.
               </p>
             </div>
           </div>

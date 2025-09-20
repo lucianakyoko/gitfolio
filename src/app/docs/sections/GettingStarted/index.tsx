@@ -26,12 +26,12 @@ export function GettingStarted() {
             <strong>Visualize uma prévia do seu portfólio</strong> para ver como ele ficará.
           </li>
           <li>
-            <strong>Crie um repositório chamado GitFolio </strong>no seu GitHub com o conteúdo de README fornecido.
+            <strong>Crie um repositório especial </strong>no seu GitHub com o conteúdo de README fornecido.
           </li>
         </ol>
-        <div className="mt-6 p-4 bg-blue-50 rounded-md">
+        <div className="mt-6 text-sm bg-yellow-50 p-4 rounded-md">
           <p className="text-sm text-gitfolio-slate">
-            <strong>Observação:</strong> O GitFolio utiliza os arquivos README.md dos seus repositórios para reunir informações sobre seus projetos. Certifique-se de que seus projetos mais importantes tenham READMEs bem documentados.
+            <strong>Observação:</strong> O GitFolio utiliza o arquivo README.md do seu <span className="font-bold">repositório especial</span> para reunir informações sobre seus projetos.
           </p>
         </div>
       </div>

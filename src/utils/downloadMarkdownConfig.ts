@@ -2,9 +2,9 @@ import { ThemeConfigData } from "@/contexts/ThemeConfigContext"
 
 export function downloadMarkdownConfig(config: ThemeConfigData) {
   const content = `
-Acesse meu Gitfolio em: 
-<a href="https://gitfolio.vercel.app/${config?.githubUser}">
-  https://gitfolio.vercel.app/${config?.githubUser}
+Acesse meu Gitfollio em: 
+<a href="https://gitfollio.vercel.app/${config?.githubUser}">
+  https://gitfollio.vercel.app/${config?.githubUser}
 </a>
 <!-- GitFolio:start
 {

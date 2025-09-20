@@ -29,7 +29,7 @@ export function StepOne({ setStep }: StepOneProps) {
     <div className='flex flex-col gap-20'>
       <div className='flex flex-col gap-8 items-center'>
         <div className='flex flex-col gap-3 items-center'>
-          <h1 className="text-4xl font-black text-blue-300">Gitfolio</h1>
+          <h1 className="text-4xl font-black text-blue-300">Gitfollio</h1>
           <h2 className="text-2xl font-semibold text-gray-600">Mostre seus projetos do GitHub com um portfólio simples e rápido</h2>
         </div>
 
@@ -85,7 +85,7 @@ export function StepOne({ setStep }: StepOneProps) {
             <span className="font-bold text-blue-300 text-2xl">3</span>
             <p className="font-semibold text-md">Gere e Publique</p>
           </div>
-          <p className='text-center'>Adicione as configurações no seu repositório especial e seu Gitfolio estará disponível em <span className='text-sm'>gitfolio.vercel.app/seu-usuario</span></p>
+          <p className='text-center'>Adicione as configurações no seu repositório especial e seu Gitfollio estará disponível em <span className='text-sm'>gitfollio.vercel.app/seu-usuario</span></p>
         </div>
       </div>
     </div>

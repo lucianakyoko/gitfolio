@@ -30,8 +30,8 @@ export default function Documentarion() {
 
         <div className="flex flex-col gap-2 items-center pb-12">
           <BookOpen color="#FFFFFF" className="h-12 w-12 mx-auto mb-4" />
-          <h2 className="text-3xl font-bold text-white">Documentação Gitfolio</h2>
-          <p className="text-xl text-white text-center">Aprenda como usar o Gitfolio para criar seu portfólio em minutos</p>
+          <h2 className="text-3xl font-bold text-white">Documentação Gitfollio</h2>
+          <p className="text-xl text-white text-center">Aprenda como usar o Gitfollio para criar seu portfólio em minutos</p>
         </div>
       </header>
 

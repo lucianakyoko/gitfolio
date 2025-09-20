@@ -31,7 +31,7 @@ export function GettingStarted() {
         </ol>
         <div className="mt-6 text-sm bg-yellow-50 p-4 rounded-md">
           <p className="text-sm text-gitfolio-slate">
-            <strong>Observação:</strong> O GitFolio utiliza o arquivo README.md do seu <span className="font-bold">repositório especial</span> para reunir informações sobre seus projetos.
+            <strong>Observação:</strong> O GitFollio utiliza o arquivo README.md do seu <span className="font-bold">repositório especial</span> para reunir informações sobre seus projetos.
           </p>
         </div>
       </div>

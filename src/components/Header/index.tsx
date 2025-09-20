@@ -14,7 +14,7 @@ export function Header() {
         <NextLink 
           href='/'
           className='text-blue-950 font-bold text-xl hover:text-blue-800'
-        >Gitfolio
+        >Gitfollio
         </NextLink>
         <NextLink 
           href='/docs'

@@ -6,7 +6,7 @@ import { ReactQueryProvider } from "../providers/ReactQueryProvider";
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Gitfolio",
+  title: "Gitfollio",
   description: "Crie seu portfolio visual com projetos do GitHub.",
 };
 

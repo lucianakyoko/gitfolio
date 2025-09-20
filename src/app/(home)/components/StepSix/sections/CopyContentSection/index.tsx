@@ -12,8 +12,8 @@ export function CopyContentSection() {
 
   const content = `
 Acesse meu portfólio em: 
-<a href="https://gitfolio.vercel.app/${user?.login || data.githubUser || ''}"> 🔗
-  https://gitfolio.vercel.app/${user?.login || data.githubUser || ''}
+<a href="https://gitfollio.vercel.app/${user?.login || data.githubUser || ''}"> 🔗
+  https://gitfollio.vercel.app/${user?.login || data.githubUser || ''}
 </a>
 
 <!-- GitFolio:start

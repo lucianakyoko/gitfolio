@@ -11,9 +11,9 @@ export function PortfolioUrlDisplaySection() {
           Depois que o repositório for configurado, seu portfólio estará disponível em:
         </p>
         <div className="flex flex-col gap-4 justify-between items-start text-gray-600 py-4 px-8 border border-blue-100 rounded-md">
-          <p>{`https://gitfolio.vercel.app/${user?.login}`}</p>
+          <p>{`https://gitfollio.vercel.app/${user?.login}`}</p>
           <a 
-            href={`https://gitfolio.vercel.app/${user?.login}`}
+            href={`https://gitfollio.vercel.app/${user?.login}`}
             target="_blank" 
             rel="noopener noreferrer"
             className="py-1 px-3 flex items-center gap-2 border border-blue-100 rounded-md text-gray-500 cursor-pointer hover:bg-blue-50"

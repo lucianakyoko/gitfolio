@@ -1,6 +1,5 @@
 import { ExternalLink, Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 
 type Project = {
   id: number;

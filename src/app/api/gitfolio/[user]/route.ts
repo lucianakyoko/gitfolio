@@ -1,11 +1,12 @@
-// src/app/api/gitfolio/[user]/route.ts
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from 'next/server';
 
-export async function GET(
-  request: Request,
-  { params }: { params: { user: string } }
-) {
-  const { user } = params;
+interface RouteParams {
+  params: Promise<{ user: string }>;
+}
+
+export async function GET(request: NextRequest, { params }: RouteParams) {
+  const { user } = await params;
+  
   const url = `https://raw.githubusercontent.com/${user}/${user}/main/README.md`;
 
   try {
@@ -13,7 +14,7 @@ export async function GET(
       headers: {
         Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
       },
-      cache: "no-store",
+      cache: 'no-store',
     });
 
     if (!res.ok) {
@@ -26,8 +27,9 @@ export async function GET(
     const readmeText = await res.text();
     return NextResponse.json({ readme: readmeText });
   } catch (error) {
+    console.error('Erro ao buscar README:', error);
     return NextResponse.json(
-      { error: "Erro ao buscar README no GitHub" },
+      { error: 'Erro ao buscar README no GitHub' },
       { status: 500 }
     );
   }

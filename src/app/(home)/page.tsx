@@ -1,7 +1,6 @@
 'use client'
 
 import { Header } from "@/components/Header"
-import { ReactQueryProvider } from "@/providers/ReactQueryProvider";
 import { StepFive } from "./components/StepFive";
 import { StepFour } from "./components/StepFour";
 import { StepOne } from "./components/StepOne";

@@ -35,8 +35,8 @@ export function Card({
           className="w-full h-full object-cover object-top hover:object-bottom transition-all duration-2000 rounded-xl "
           src={preview}
           alt={`Imagem do tema ${name}`}
-          width={100} 
-          height={100}
+          width={220} 
+          height={3000}
         />
       </div>
       <div className="p-4">

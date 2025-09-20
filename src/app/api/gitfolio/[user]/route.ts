@@ -1,0 +1,34 @@
+// src/app/api/gitfolio/[user]/route.ts
+import { NextResponse } from "next/server";
+
+export async function GET(
+  request: Request,
+  { params }: { params: { user: string } }
+) {
+  const { user } = params;
+  const url = `https://raw.githubusercontent.com/${user}/${user}/main/README.md`;
+
+  try {
+    const res = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      },
+      cache: "no-store",
+    });
+
+    if (!res.ok) {
+      return NextResponse.json(
+        { error: `README.md não encontrado para ${user}` },
+        { status: 404 }
+      );
+    }
+
+    const readmeText = await res.text();
+    return NextResponse.json({ readme: readmeText });
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Erro ao buscar README no GitHub" },
+      { status: 500 }
+    );
+  }
+}

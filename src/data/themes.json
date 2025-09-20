@@ -4,42 +4,42 @@
     "type": "minimal",
     "name": "Minimal",
     "description": "Design limpo e simples, com foco nos seus projetos",
-    "preview": "https://plus.unsplash.com/premium_photo-1744967146102-f6c90fe2a3d2?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "preview": "/minimal.png"
   },
   {
     "id": "modern",
     "type": "modern",
     "name": "Modern",
     "description": "Visual atual e dinâmico, ideal para portfolios criativos",
-    "preview": "https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "preview": "/modern.png"
   },
   {
     "id": "creative",
     "type": "creative",
     "name": "Creative",
     "description": "Estilo expressivo e ousado, para destacar sua personalidade",
-    "preview": "https://images.unsplash.com/photo-1522252234503-e356532cafd5?q=80&w=1450&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "preview": "/creative.png"
   },
   {
     "id": "professional",
     "type": "professional",
     "name": "Professional",
     "description": "Layout elegante e corporativo, perfeito para o mercado de trabalho",
-    "preview": "https://plus.unsplash.com/premium_photo-1663023612721-e588768ef403?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "preview": "/professional.png"
   },
   {
     "id": "dark",
     "type": "dark",
     "name": "Dark",
     "description": "Aparência escura e sofisticada, com contraste suave",
-    "preview": "https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "preview": "/dark.png"
   },
   {
     "id": "cyberpunk",
     "type": "cyberpunk",
     "name": "Cyberpunk",
     "description": "Visual futurista e vibrante, com tons neon e atmosfera tech",
-    "preview": "https://plus.unsplash.com/premium_photo-1683309565422-77818a287060?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "preview": "/cyberpunk.png"
   }
 ]
 

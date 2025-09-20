@@ -88,7 +88,7 @@ function AddingConfigInstructions() {
       </li>
       <li>Edite o arquivo README.md existente.</li>
       <li>Copie e cole o conteúdo gerado pelo GitFolio (no passo 2 da configuração) dentro do README.md.</li>
-      <li>Se já houver conteúdo, você pode adicionar abaixo do texto atual.</li>
+      <li>Se já houver conteúdo, você pode adicionar abaixo do texto atual. Não se preocupe, as configurações não ficarão visíveis.</li>
       <li>Faça o commit das alterações.</li>
     </ol>
   )

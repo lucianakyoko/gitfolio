@@ -1,27 +1,32 @@
 import { ThemeConfigData } from "@/contexts/ThemeConfigContext"
 
 export function downloadMarkdownConfig(config: ThemeConfigData) {
-  const content = 
-  `<!--GitFolio:start-->
-    {
-      "gitfolio": "on",
-      "name": "${config.name}",
-      "email": "${config.email}",
-      "tagline": "${config.tagline}",
-      "avatar_url": "${config.avatar_url}",
-      "website": "${config.website}",
-      "githubUser": "${config.githubUser}",
-      "linkedinUser": "${config.linkedinUser}",
-      "about": "${config.about}",
-      "tech": ${JSON.stringify(config.tech)},,
-      "showStars": "${config.showStars}",
-      "showFollowers": "${config.showFollowers}",
-      "followers": "${config.followers}",
-      "following": "${config.following}",
-      "themeId": "${config.themeId}",
-      "projects": ${JSON.stringify(config.projects, null, 2)}
-      }))},
-    <!--GitFolio:end--> `
+  const content = `
+Acesse meu Gitfolio em: 
+<a href="https://gitfolio.vercel.app/${config?.githubUser}">
+  https://gitfolio.vercel.app/${config?.githubUser}
+</a>
+<!-- GitFolio:start
+{
+  "gitfolio": "on",
+  "name": "${config.name}",
+  "email": "${config.email}",
+  "tagline": "${config.tagline}",
+  "avatar_url": "${config.avatar_url}",
+  "website": "${config.website}",
+  "githubUser": "${config.githubUser}",
+  "linkedinUser": "${config.linkedinUser}",
+  "about": "${config.about}",
+  "showStars": "${config.showStars}",
+  "showFollowers": "${config.showFollowers}",
+  "followers": "${config.followers}",
+  "following": "${config.following}",
+  "themeId": "${config.themeId}",
+  "tech": ${JSON.stringify(config.tech)},
+  "projects": ${JSON.stringify(config.projects)}
+}
+GitFolio:end -->
+`;
 
   const blob = new Blob([content], {type: "text/markdown;charset=utf-8"})
   const url = URL.createObjectURL(blob)

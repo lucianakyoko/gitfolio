@@ -13,6 +13,8 @@ Com uma interface intuitiva, os usuários podem configurar seus dados pessoais, 
 
 Ideal para desenvolvedores que desejam showcasing seus projetos de forma profissional e prática.
 
+<img align="center" alt="Miniatura da imagem do projeto" height="500" width="700" src=".github/gitfolio.jpg">
+
 
 ---
 
@@ -47,9 +49,7 @@ Ideal para desenvolvedores que desejam showcasing seus projetos de forma profiss
 
 
 ## ⭐ Temas
-<p align="">
-  <img href="./.github/select-theme.jpg" alt="Preview da tela de temas" height="500" width="700"/>
-</p>
+<img align="center" alt="Miniatura da imagem do projeto" height="500" width="700" src=".github/select-theme.jpg">
 
 ---
 

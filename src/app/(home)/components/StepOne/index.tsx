@@ -29,7 +29,10 @@ export function StepOne({ setStep }: StepOneProps) {
     <div className='flex flex-col gap-20'>
       <div className='flex flex-col gap-8 items-center'>
         <div className='flex flex-col gap-3 items-center'>
-          <h1 className="text-4xl font-black text-blue-300">Gitfollio</h1>
+          <h1 className="text-4xl font-black text-blue-300 flex items-end">
+            <NextImage width={60} height={60} alt="Logo do GitFollio" className="pb-1.5" src="/gitfolio.svg"/>
+            <span className=''>itfollio</span>
+          </h1>
           <h2 className="text-2xl font-semibold text-gray-600">Mostre seus projetos do GitHub com um portfólio simples e rápido</h2>
         </div>
 

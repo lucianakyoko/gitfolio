@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: "Gitfollio",
   description: "Crie seu portfolio visual com projetos do GitHub.",
+  icons: {
+    icon: '/gitfolio.svg',
+  },
 };
 
 export default function RootLayout({

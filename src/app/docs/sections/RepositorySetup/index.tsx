@@ -24,7 +24,7 @@ export function RepositorySetup() {
 
       <div className="bg-white p-6 rounded-lg shadow-sm">
         <p className="mb-4">
-          Para que seu portfólio seja exibido corretamente com o GitFolio, você precisa criar um repositório especial no GitHub:
+          Para que seu portfólio seja exibido corretamente com o GitFollio, você precisa criar um repositório especial no GitHub:
         </p>
         <div className="mb-6 space-y-4">
           <div className="p-4 border border-blue-100 rounded-md">
@@ -35,7 +35,7 @@ export function RepositorySetup() {
           <div className="p-4 border border-blue-100 rounded-md">
             <h3 className="font-semibold text-lg mb-2">2. Adicione a Configuração no README</h3>
             <p className="mb-3">
-              No arquivo README.md, adicione a configuração do seu portfólio entre as tags de comentário especiais do GitFolio:
+              No arquivo README.md, adicione a configuração do seu portfólio entre as tags de comentário especiais do GitFollio:
             </p>
             <div className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto">
               <pre>{
@@ -101,13 +101,13 @@ export function RepositorySetup() {
               <li><strong>showStars:</strong> Opções: true ou false. Você pode exibir ou não os stars que recebeu.</li>
               <li><strong>showFollowers:</strong> Opções: true ou false. Você pode exibir ou não os seus seguidores.</li>
               <li><strong>themeId:</strong> Nome do tema (minimal, modern, creative, professional, dark)</li>
-              <li><strong>projects:</strong> Lista de projetos que deseja exibir no GitFolio</li>
+              <li><strong>projects:</strong> Lista de projetos que deseja exibir no GitFollio</li>
               <li><strong>id:</strong> Id do repositório.</li>
               <li><strong>repoName:</strong> Nome do repositório.</li>
               <li><strong>url:</strong> Link do repositório.</li>
               <li><strong>stars:</strong> Número de estrelas recebidas. Ficará visível somente se a opção showStars estiver como true.</li>
               <li><strong>description:</strong> Descrição do projeto</li>
-              <li><strong>image:</strong> Thumbnail do projeto para aparecer no GitFolio.</li>
+              <li><strong>image:</strong> Thumbnail do projeto para aparecer no GitFollio.</li>
               <li><strong>techs:</strong> Lista das tecnologias utilizada no projto.</li>
               <li><strong>deploy:</strong> Link do projeto.</li>
               <li><strong>highlighted:</strong> Opções: true ou false. Define se o projeto receberá destaque ou não. É possível destacar até 3 projetos.</li>

@@ -27,12 +27,12 @@ export function Faq() {
             className="border border-blue-100 rounded-md overflow-hidden"
           >
             <CollapsibleTrigger className="cursor-pointer flex w-full items-center justify-between p-4 text-left font-medium">
-              <span>Como o GitFolio acessa meus dados do GitHub?</span>
+              <span>Como o GitFollio acessa meus dados do GitHub?</span>
               <span className="text-sm">{openSections['faq-1'] ? 'Ocultar' : 'Mostrar'}</span>
             </CollapsibleTrigger>
             <CollapsibleContent className="p-4 border-t border-blue-300">
               <p>
-                O GitFolio utiliza a API pública do GitHub para buscar informações do seu perfil e repositórios.
+                O GitFollio utiliza a API pública do GitHub para buscar informações do seu perfil e repositórios.
                 Ele acessa apenas dados públicos e não requer permissões especiais ou autenticação.
               </p>
             </CollapsibleContent>
@@ -64,12 +64,12 @@ export function Faq() {
             className="border border-blue-100 rounded-md overflow-hidden"
           >
             <CollapsibleTrigger className="cursor-pointer flex w-full items-center justify-between p-4 text-left font-medium">
-              <span>Posso personalizar o GitFolio além das opções fornecidas?</span>
+              <span>Posso personalizar o GitFollio além das opções fornecidas?</span>
               <span className="text-sm">{openSections['faq-3'] ? 'Ocultar' : 'Mostrar'}</span>
             </CollapsibleTrigger>
             <CollapsibleContent className="p-4 border-t border-blue-300">
               <p>
-                A versão atual do GitFolio permite personalização por meio de opções de configuração.
+                A versão atual do GitFollio permite personalização por meio de opções de configuração.
               </p>
             </CollapsibleContent>
           </Collapsible>
@@ -80,18 +80,18 @@ export function Faq() {
             className="border border-blue-100 rounded-md overflow-hidden"
           >
             <CollapsibleTrigger className="cursor-pointer flex w-full items-center justify-between p-4 text-left font-medium">
-              <span>Como posso atualizar meu GitFolio após criá-lo?</span>
+              <span>Como posso atualizar meu GitFollio após criá-lo?</span>
               <span className="text-sm">{openSections['faq-4'] ? 'Ocultar' : 'Mostrar'}</span>
             </CollapsibleTrigger>
             <CollapsibleContent className="p-4 border-t border-blue-300 flex flex-col gap-2">
               <p>
-                Você pode atualizar seu GitFolio editando o arquivo `README.md` no repositório especial.
+                Você pode atualizar seu GitFollio editando o arquivo `README.md` no repositório especial.
               </p>
               <p>
                 Altere a configuração entre as tags `GitFolio:start` e `GitFolio:end`, e o portfólio será atualizado com essas mudanças.
               </p>
               <p>
-                Você pode usar o <Link href='/'>wizard</Link> para gerar um novo bloco de configurações e substituir pelo anterior.
+                Você pode usar o <Link href='/' className="font-bold text-blue-600">wizard</Link> para gerar um novo bloco de configurações e substituir o anterior.
               </p>
             </CollapsibleContent>
           </Collapsible>

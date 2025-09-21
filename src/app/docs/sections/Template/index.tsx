@@ -9,7 +9,7 @@ export function Template() {
       </div>
       <div className="bg-white p-6 rounded-lg shadow-sm">
         <p className="mb-4">
-          O GitFolio oferece diversos modelos para exibir seu portfólio com estilos visuais variados. Você pode escolher um durante a criação do portfólio ou atualizando a configuração diretamente no seu repositório GitFolio.
+          O GitFollio oferece diversos modelos para exibir seu portfólio com estilos visuais variados. Você pode escolher um durante a criação do portfólio ou atualizando a configuração diretamente no seu repositório GitFollio.
         </p>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
@@ -69,7 +69,7 @@ export function Template() {
         </div>
         
         <p className="text-sm bg-yellow-50 p-4 rounded-md">
-          <strong>Observação:</strong> Todos os modelos são responsivos e funcionam bem em qualquer tamanho de tela. Você também pode personalizar ainda mais a aparência usando a opção primaryColor na sua configuração.
+          <strong>Observação:</strong> Todos os modelos são responsivos e funcionam bem em qualquer tamanho de tela.
         </p>
       </div>
     </section>

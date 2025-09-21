@@ -22,7 +22,7 @@ export function AdvancedConfiguration () {
       </div>
       <div className="bg-white p-6 rounded-lg shadow-sm">
         <p className="mb-4">
-          Você pode personalizar ainda mais o seu portfólio do GitFolio ajustando configurações adicionais no seu arquivo README:
+          Você pode personalizar ainda mais o seu portfólio do GitFollio ajustando configurações adicionais no seu arquivo README:
         </p>
         
         <Collapsible 

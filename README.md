@@ -2,7 +2,7 @@
   <img src="./public/gitFollio-logo.svg" alt="Preview do jogo Flappy Mario"/>
 </p>
 <p align="center">
-  <a src="https://gitfollio.vercel.app/">Acesse a página</a><br/>
+  <a href="https://gitfollio.vercel.app/">Acesse a página</a><br/>
 </p>
 
 ---

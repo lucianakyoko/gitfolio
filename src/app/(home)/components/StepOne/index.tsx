@@ -42,6 +42,7 @@ export function StepOne({ setStep }: StepOneProps) {
           </div>
           <Input 
             type='text'
+            autoFocus
             value= {userName}
             onChange={e => setUserName(e.target.value)}
             placeholder='Insira o seu usuário do Github'

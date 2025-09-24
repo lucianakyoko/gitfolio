@@ -135,7 +135,7 @@ export function StepThree({ setStep }: StepThreeProps) {
           <Label className="text-gray-600" htmlFor="website">Personal Website</Label>
           <Input 
             id="website" 
-            placeholder="https://lucianakyoko.vercel.app"  
+            placeholder="https://meu-site.com.br"  
             className="border-blue-100"
             value={data.website}
             onChange={e => updateData({website: e.target.value})}
@@ -185,7 +185,7 @@ export function StepThree({ setStep }: StepThreeProps) {
         <Separator className="md:col-span-2 my-6"/>
 
         <div className="flex flex-col gap-2">
-          <Label className="text-gray-600" htmlFor="tech">Tecnogias</Label>
+          <Label className="text-gray-600" htmlFor="tech">Tecnologias</Label>
           <Input
             id="tech"
             placeholder="React, TypeScript, Node.js"
